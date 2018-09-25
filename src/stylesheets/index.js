@@ -1,0 +1,5 @@
+export { default as colors } from './colors'
+export { default as fontSizes } from './fontSizes'
+export { default as others } from './others'
+export { default as spacings } from './spacings'
+export { default as typography } from './typography'
