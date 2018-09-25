@@ -12,9 +12,7 @@ import Investments from './Investments'
 const screensList = [Home, Battles, Shop, Investments]
 
 const navigatorItems = screensList.reduce((screensAccumulator, Screen) => {
-  let ProcessedScreen = Screen
-
-  ProcessedScreen.navigationOptions = {
+  Screen.navigationOptions = { // eslint-disable-line no-param-reassign
     drawerIcon: () => (
       <Image
         source={Screen.icon}
@@ -29,7 +27,7 @@ const navigatorItems = screensList.reduce((screensAccumulator, Screen) => {
 
   return {
     ...screensAccumulator,
-    [Screen.label]: ProcessedScreen,
+    [Screen.label]: Screen,
   }
 }, {})
 

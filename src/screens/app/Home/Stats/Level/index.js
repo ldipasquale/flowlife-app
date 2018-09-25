@@ -3,7 +3,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { Title, Value } from '@components'
 
-import { colors } from '@stylesheets'
+import { colors } from '@stylesheets'
 
 import styles from './styles'
 

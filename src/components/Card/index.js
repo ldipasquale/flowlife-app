@@ -9,9 +9,11 @@ class Card extends React.PureComponent {
     const { children, style, onPress } = this.props
 
     if (onPress === null) {
-      <View style={[styles.container, style]}>
-        {children}
-      </View>
+      return (
+        <View style={[styles.container, style]}>
+          {children}
+        </View>
+      )
     }
 
     return (

@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Animated, View, TouchableOpacity, Image, Text } from 'react-native'
+import {
+  Animated, View, TouchableOpacity, Image,
+} from 'react-native'
 
+import assets from '@assets'
 import { spacings } from '@stylesheets'
 
 import Header from './Header'
@@ -34,30 +37,36 @@ class App extends React.PureComponent {
   }
 
   animateManagerTip(topPosition) {
-    return Animated.timing(this.state.managerTipAnimation, {
+    const { managerTipAnimation } = this.state
+
+    return Animated.timing(managerTipAnimation, {
       toValue: topPosition,
       duration: 500,
     })
   }
 
   animateManagerTipOverlay(opacityValue) {
-    return Animated.timing(this.state.managerTipOverlayAnimation, {
+    const { managerTipOverlayAnimation } = this.state
+
+    return Animated.timing(managerTipOverlayAnimation, {
       toValue: opacityValue,
       duration: 300,
     })
   }
 
   animateManagerButton(position) {
-    return Animated.timing(this.state.managerButtonAnimation, {
+    const { managerButtonAnimation } = this.state
+
+    return Animated.timing(managerButtonAnimation, {
       toValue: position,
       duration: 150,
     })
   }
 
   toggleManagerTip() {
-    const wasOpened = this.state.isManagerTipOpened
+    const { isManagerTipOpened } = this.state
 
-    if (wasOpened) {
+    if (isManagerTipOpened) {
       return this.animateManagerTip(HIDDEN_MANAGER_TIP_POSITION).start(() => (
         this.animateManagerTipOverlay(0).start(() => (
           this.setState({
@@ -78,14 +87,16 @@ class App extends React.PureComponent {
   }
 
   renderManagerTip() {
+    const { managerTipOverlayAnimation, managerTipAnimation } = this.state
+
     return (
       <React.Fragment>
         <Animated.View
           style={[
             styles.backgroundOverlay,
             {
-              opacity: this.state.managerTipOverlayAnimation,
-            }
+              opacity: managerTipOverlayAnimation,
+            },
           ]}
         />
 
@@ -94,8 +105,8 @@ class App extends React.PureComponent {
             styles.managerTipContainer,
             {
               transform: [{
-                translateY: this.state.managerTipAnimation,
-              }]
+                translateY: managerTipAnimation,
+              }],
             },
           ]}
         >
@@ -108,12 +119,14 @@ class App extends React.PureComponent {
   }
 
   renderManagerButton() {
+    const { managerButtonAnimation } = this.state
+
     return (
       <Animated.View
         style={[
           styles.managerButton,
           {
-            bottom: this.state.managerButtonAnimation,
+            bottom: managerButtonAnimation,
           },
         ]}
       >
@@ -121,7 +134,7 @@ class App extends React.PureComponent {
           onPress={this.toggleManagerTip}
           activeOpacity={0.8}
         >
-          <Image source={require('@assets/icons/manager.png')} />
+          <Image source={assets.manager} />
         </TouchableOpacity>
       </Animated.View>
     )

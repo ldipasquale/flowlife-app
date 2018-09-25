@@ -1,15 +1,18 @@
 import React from 'react'
 
-import { View, Text, Image } from 'react-native'
+import { View, Text } from 'react-native'
 import { App, Card } from '@components'
 
+import assets from '@assets'
 import { colors } from '@stylesheets'
 
 import screens from '@screens'
 
 class Investments extends React.PureComponent {
   static label = screens.INVESTMENTS
-  static icon = require('@assets/icons/investments.png')
+
+  static icon = assets.investments
+
   static color = colors.BLUE
 
   render() {

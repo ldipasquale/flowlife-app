@@ -7,7 +7,9 @@ import styles from './styles'
 
 class AlertLabel extends React.PureComponent {
   render() {
-    const { children, onPress, color, style } = this.props
+    const {
+      children, onPress, color, style,
+    } = this.props
 
     return (
       <TouchableOpacity
@@ -38,6 +40,7 @@ AlertLabel.propTypes = {
 
 AlertLabel.defaultProps = {
   style: null,
+  color: null,
 }
 
 export default AlertLabel

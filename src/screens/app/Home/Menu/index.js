@@ -1,10 +1,11 @@
 import React from 'react'
-import { withNavigation } from 'react-navigation';
+import PropTypes from 'prop-types'
+import { withNavigation } from 'react-navigation'
 
-import { Image, View, Text } from 'react-native'
+import { Image, View } from 'react-native'
 import { AlertLabel, Card, Title } from '@components'
 
-import { colors, fontSizes } from '@stylesheets'
+import { fontSizes } from '@stylesheets'
 
 import Battles from '@screens/app/Battles'
 import Shop from '@screens/app/Shop'
@@ -13,7 +14,9 @@ import Investments from '@screens/app/Investments'
 import styles from './styles'
 
 class Menu extends React.PureComponent {
-  static renderItem({ onPress, color, label, icon, alertsAmount }) {
+  static renderItem({
+    onPress, color, label, icon, alertsAmount,
+  }) {
     return (
       <View
         key={label}
@@ -75,6 +78,10 @@ class Menu extends React.PureComponent {
       </View>
     )
   }
+}
+
+Menu.propTypes = {
+  navigation: PropTypes.object.isRequired,
 }
 
 export default withNavigation(Menu)

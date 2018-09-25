@@ -1,8 +1,7 @@
 import React from 'react'
-import { View, Text } from 'react-native'
 
-import { Card, Title } from '@components'
-import { colors } from '@stylesheets'
+import { View } from 'react-native'
+import { Card } from '@components'
 
 import Money from './Money'
 import Level from './Level'

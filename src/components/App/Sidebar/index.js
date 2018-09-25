@@ -1,5 +1,7 @@
 import React from 'react'
-import { ScrollView, View, Text, Image } from 'react-native'
+import {
+  ScrollView, View, Text, Image,
+} from 'react-native'
 import { DrawerItems, SafeAreaView } from 'react-navigation'
 
 import styles from './styles'

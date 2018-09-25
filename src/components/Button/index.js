@@ -34,4 +34,8 @@ Button.propTypes = {
   color: PropTypes.string,
 }
 
+Button.defaultProps = {
+  color: null,
+}
+
 export default Button

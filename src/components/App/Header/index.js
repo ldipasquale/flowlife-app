@@ -1,28 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withNavigation } from 'react-navigation';
+import { withNavigation } from 'react-navigation'
 
-import { View, TouchableOpacity, Text, Image } from 'react-native'
+import {
+  View, TouchableOpacity, Text, Image,
+} from 'react-native'
+
+import assets from '@assets'
 
 import styles from './styles'
 
 class Header extends React.PureComponent {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const { navigation, avatarUrl } = this.props
 
     return (
       <View style={styles.container}>
-        <View style={styles.col}>
+        <View style={styles.column}>
           <TouchableOpacity
             style={styles.leftIcon}
             onPress={navigation.openDrawer}
             activeOpacity={0.8}
           >
-            <Image source={require('@assets/icons/menu.png')} />
+            <Image source={assets.menu} />
           </TouchableOpacity>
 
           <Text style={styles.title}>
@@ -30,19 +30,26 @@ class Header extends React.PureComponent {
           </Text>
         </View>
 
-        <View style={styles.col}>
-          <Image
-            source={{ uri: avatarUrl }}
-            style={styles.avatarIcon}
-          />
-        </View>
+        {avatarUrl && (
+          <View style={styles.column}>
+            <Image
+              source={{ uri: avatarUrl }}
+              style={styles.avatarIcon}
+            />
+          </View>
+        )}
       </View>
     )
   }
 }
 
 Header.propTypes = {
-  //title: PropTypes.string.isRequired,
+  navigation: PropTypes.object.isRequired,
+  avatarUrl: PropTypes.string,
+}
+
+Header.defaultProps = {
+  avatarUrl: null,
 }
 
 export default withNavigation(Header)

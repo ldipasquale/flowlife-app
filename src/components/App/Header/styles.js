@@ -13,7 +13,7 @@ export default StyleSheet.create({
     elevation: 5,
     borderRadius: 5,
   },
-  col: {
+  column: {
     flexDirection: 'row',
     alignItems: 'center',
   },

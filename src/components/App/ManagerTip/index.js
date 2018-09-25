@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { View, TouchableOpacity, Image, Text } from 'react-native'
+import {
+  View, TouchableOpacity, Image, Text,
+} from 'react-native'
 import { Title } from '@components'
 
+import assets from '@assets'
 import { colors, fontSizes } from '@stylesheets'
 
 import Button from '../../Button'
@@ -11,10 +14,6 @@ import Button from '../../Button'
 import styles from './styles'
 
 class ManagerTip extends React.PureComponent {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const { onClose } = this.props
 
@@ -26,14 +25,14 @@ class ManagerTip extends React.PureComponent {
           activeOpacity={0.8}
         >
           <Image
-            source={require('@assets/icons/cross.png')}
+            source={assets.cross}
             style={styles.closeIcon}
           />
         </TouchableOpacity>
 
         <View style={styles.container}>
           <Image
-            source={require('@assets/icons/manager.png')}
+            source={assets.manager}
             style={styles.managerIcon}
           />
 
@@ -62,7 +61,7 @@ class ManagerTip extends React.PureComponent {
 }
 
 ManagerTip.propTypes = {
-  //title: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default ManagerTip

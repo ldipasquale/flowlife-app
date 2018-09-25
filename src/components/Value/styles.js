@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { colors, fontSizes } from '@stylesheets'
+import { fontSizes } from '@stylesheets'
 
 export default StyleSheet.create({
   value: {

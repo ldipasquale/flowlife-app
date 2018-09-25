@@ -1,5 +1,6 @@
 {
   "extends": "airbnb",
+  "parser": "babel-eslint",
   "parserOptions":{
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true
@@ -13,6 +14,8 @@
     "react/no-danger": "off",
     "new-cap": "off",
     "react/jsx-filename-extension": "off",
-    "max-len": ["error", 120]
+    "max-len": ["error", 120],
+    "react/prefer-stateless-function": "off",
+    "react/forbid-prop-types": "off"
   }
 }
