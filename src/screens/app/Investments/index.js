@@ -7,10 +7,10 @@ import { colors } from '@stylesheets'
 
 import screens from '@screens'
 
-class Battles extends React.PureComponent {
-  static label = screens.BATTLES
-  static icon = require('@assets/icons/battles.png')
-  static color = colors.ORANGE
+class Investments extends React.PureComponent {
+  static label = screens.INVESTMENTS
+  static icon = require('@assets/icons/investments.png')
+  static color = colors.BLUE
 
   render() {
     return (
@@ -25,4 +25,4 @@ class Battles extends React.PureComponent {
   }
 }
 
-export default Battles
+export default Investments

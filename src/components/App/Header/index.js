@@ -20,6 +20,7 @@ class Header extends React.PureComponent {
           <TouchableOpacity
             style={styles.leftIcon}
             onPress={navigation.openDrawer}
+            activeOpacity={0.8}
           >
             <Image source={require('@assets/icons/menu.png')} />
           </TouchableOpacity>

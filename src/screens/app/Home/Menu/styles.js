@@ -8,6 +8,14 @@ export default StyleSheet.create({
   },
   cardContainer: {
     flex: 0.3,
+    position: 'relative',
+  },
+  alert: {
+    position: 'absolute',
+    top: spacings.SMALL * -1,
+    right: spacings.SMALL * -1,
+    elevation: 4,
+    zIndex: 1,
   },
   card: {
     padding: 0,

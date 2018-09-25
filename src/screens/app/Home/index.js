@@ -9,13 +9,8 @@ import Stats from './Stats'
 import Menu from './Menu'
 
 class Home extends React.PureComponent {
-  static navigationOptions = {
-    drawerIcon: ({ tintColor }) => (
-      <Image
-        style={{tintColor}}
-      />
-    ),
-  }
+  static label = screens.HOME
+  static icon = require('@assets/icons/shop.png')
 
   render() {
     return (

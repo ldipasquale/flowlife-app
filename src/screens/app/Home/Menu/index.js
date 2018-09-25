@@ -2,15 +2,18 @@ import React from 'react'
 import { withNavigation } from 'react-navigation';
 
 import { Image, View, Text } from 'react-native'
-import { Card, Title } from '@components'
+import { AlertLabel, Card, Title } from '@components'
 
 import { colors, fontSizes } from '@stylesheets'
-import screens from '@screens'
+
+import Battles from '@screens/app/Battles'
+import Shop from '@screens/app/Shop'
+import Investments from '@screens/app/Investments'
 
 import styles from './styles'
 
 class Menu extends React.PureComponent {
-  static renderItem({ onPress, color, label, icon }) {
+  static renderItem({ onPress, color, label, icon, alertsAmount }) {
     return (
       <View
         key={label}
@@ -32,6 +35,16 @@ class Menu extends React.PureComponent {
             {label}
           </Title>
         </Card>
+
+        {alertsAmount && (
+          <AlertLabel
+            onPress={onPress}
+            color={color}
+            style={styles.alert}
+          >
+            {alertsAmount}
+          </AlertLabel>
+        )}
       </View>
     )
   }
@@ -40,30 +53,13 @@ class Menu extends React.PureComponent {
     super(props)
 
     this.handlePressItem = this.handlePressItem.bind(this)
-    this.handlePressBattles = () => this.handlePressItem(screens.BATTLES)
-    this.handlePressShop = () => this.handlePressItem(screens.SHOP)
-    this.handlePressInvestments = () => this.handlePressItem(screens.INVESTMENTS)
 
-    this.items = [
-      {
-        label: screens.BATTLES,
-        onPress: this.handlePressBattles,
-        color: colors.ORANGE,
-        icon: require('@assets/icons/battles.png'),
-      },
-      {
-        label: screens.SHOP,
-        onPress: this.handlePressShop,
-        color: colors.GREEN,
-        icon: require('@assets/icons/shop.png'),
-      },
-      {
-        label: screens.INVESTMENTS,
-        onPress: this.handlePressInvestments,
-        color: colors.BLUE,
-        icon: require('@assets/icons/investments.png'),
-      },
-    ]
+    this.items = [Battles, Shop, Investments].map(Screen => ({
+      label: Screen.label,
+      icon: Screen.icon,
+      color: Screen.color,
+      onPress: () => this.handlePressItem(Screen.label),
+    }))
   }
 
   handlePressItem(screenId) {

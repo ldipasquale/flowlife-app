@@ -1,4 +1,6 @@
+export { default as AlertLabel } from './AlertLabel'
 export { default as App } from './App'
+export { default as Sidebar } from './App/Sidebar'
 export { default as Card } from './Card'
 export { default as Title } from './Title'
 export { default as Value } from './Value'
