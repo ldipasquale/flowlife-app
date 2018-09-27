@@ -1,1 +1,1 @@
-export default from './screens/app'
+export default from './screens/auth'

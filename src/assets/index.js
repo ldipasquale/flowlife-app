@@ -1,3 +1,4 @@
+const back = require('./icons/back.png')
 const battles = require('./icons/battles.png')
 const cross = require('./icons/cross.png')
 const investments = require('./icons/investments.png')
@@ -6,6 +7,7 @@ const menu = require('./icons/menu.png')
 const shop = require('./icons/shop.png')
 
 export default {
+  back,
   battles,
   cross,
   investments,

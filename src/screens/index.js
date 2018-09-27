@@ -3,4 +3,6 @@ export default {
   BATTLES: 'Batallas',
   INVESTMENTS: 'Inversiones',
   SHOP: 'Tienda',
+  SIGN_UP: 'Creá tu rapero',
+  SIGN_IN: 'Ingresá a la experiencia',
 }
