@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { View } from 'react-native'
 import { Title } from '@components'
@@ -13,6 +14,8 @@ const value = 0.7
 
 class StatsFlow extends React.PureComponent {
   render() {
+    const { value } = this.props
+
     return (
       <View style={styles.container}>
         <Title color={color}>Flow</Title>
@@ -27,6 +30,10 @@ class StatsFlow extends React.PureComponent {
       </View>
     )
   }
+}
+
+StatsFlow.propTypes = {
+  value: PropTypes.number.isRequired,
 }
 
 export default StatsFlow

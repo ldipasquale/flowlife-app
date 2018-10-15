@@ -15,6 +15,7 @@ export default StyleSheet.create({
     color: colors.WHITE,
     letterSpacing: others.LETTER_SPACING,
     fontWeight: '600',
-    fontSize: fontSizes.LARGE,
+    fontSize: fontSizes.STANDARD,
+    textAlign: 'center',
   },
 })

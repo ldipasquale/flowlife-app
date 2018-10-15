@@ -30,7 +30,10 @@ class Value extends React.PureComponent {
 }
 
 Value.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   color: PropTypes.string,
   fontSize: PropTypes.number,
   style: PropTypes.number,

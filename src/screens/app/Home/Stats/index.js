@@ -4,7 +4,7 @@ import { View } from 'react-native'
 import { Card } from '@components'
 
 import Money from './Money'
-import Level from './Level'
+import Fans from './Fans'
 import Flow from './Flow'
 
 import styles from './styles'
@@ -15,16 +15,16 @@ class Stats extends React.PureComponent {
       <Card>
         <View style={[styles.row, styles.firstRow]}>
           <View style={styles.moneyContainer}>
-            <Money />
+            <Money value={2030} />
           </View>
 
           <View style={styles.levelContainer}>
-            <Level />
+            <Fans value={18} />
           </View>
         </View>
 
         <View style={styles.row}>
-          <Flow />
+          <Flow value={0.5} />
         </View>
       </Card>
     )
