@@ -6,9 +6,7 @@ import styles from './styles'
 
 class Value extends React.PureComponent {
   render() {
-    const {
-      children, color, fontSize, style,
-    } = this.props
+    const { children, color, fontSize, style } = this.props
 
     return (
       <Text
@@ -33,6 +31,7 @@ Value.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
+    PropTypes.node,
   ]).isRequired,
   color: PropTypes.string,
   fontSize: PropTypes.number,

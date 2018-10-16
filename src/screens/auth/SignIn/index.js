@@ -38,12 +38,12 @@ class SignIn extends React.PureComponent {
       <React.Fragment>
         <View style={styles.header}>
           <Image
-            source={require('@assets/images/bg.png')} 
+            source={require('@assets/images/bg.png')}
             style={styles.headerImage}
           />
 
           <Image
-            source={require('@assets/images/logo.png')} 
+            source={require('@assets/images/logo.png')}
             style={styles.logoImage}
           />
         </View>

@@ -10,8 +10,6 @@ import styles from './styles'
 
 const color = colors.ORANGE
 
-const value = 0.7
-
 class StatsFlow extends React.PureComponent {
   render() {
     const { value } = this.props

@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { View, Text } from 'react-native'
 import { App, Form } from '@components'
 import { FieldTypes } from '@components/Form'
 
@@ -20,7 +19,7 @@ class SignUp extends React.PureComponent {
         id: 'name',
         name: 'Nombre',
         type: FieldTypes.STRING,
-        //template: RapperBuilder,
+        // template: RapperBuilder,
         isRequired: true,
       }, {
         id: 'email',

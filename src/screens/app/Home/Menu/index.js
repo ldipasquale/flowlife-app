@@ -14,9 +14,7 @@ import Investments from '@screens/app/Investments'
 import styles from './styles'
 
 class Menu extends React.PureComponent {
-  static renderItem({
-    onPress, color, label, icon, alertsAmount,
-  }) {
+  static renderItem({ onPress, color, label, icon, alertsAmount }) {
     return (
       <View
         key={label}

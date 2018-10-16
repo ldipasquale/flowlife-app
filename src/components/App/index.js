@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Animated, View, TouchableOpacity, Image } from 'react-native'
-
-import assets from '@assets'
-import { spacings } from '@stylesheets'
+import { View } from 'react-native'
 
 import Header from './Header'
 import Manager from './Manager'

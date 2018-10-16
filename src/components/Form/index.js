@@ -61,6 +61,7 @@ Form.propTypes = {
   fields: PropTypes.array,
   button: PropTypes.string,
   buttonColor: PropTypes.string,
+  onSubmit: PropTypes.func.isRequired,
 }
 
 Form.defaultProps = {

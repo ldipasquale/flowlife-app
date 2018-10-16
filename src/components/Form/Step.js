@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, ScrollView, Text } from 'react-native'
+import { View, ScrollView } from 'react-native'
 
 import TForm from 'tcomb-form-native'
-import TFormTemplates from 'tcomb-form-native/lib/templates/bootstrap'
 import format from 'date-fns/format'
 import esLocale from 'date-fns/locale/es'
 
@@ -67,16 +66,17 @@ class FormStep extends React.PureComponent {
   constructor(props) {
     super(props)
 
+    this.formRef = React.createRef()
+
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit() {
     const { onSubmit } = this.props
 
-    const values = this.refs.form.getValue()
+    const values = this.formRef.current.getValue()
 
     if (values) {
-      console.warn(JSON.stringify(values))
       onSubmit(values)
     }
   }
@@ -91,7 +91,7 @@ class FormStep extends React.PureComponent {
       <View style={styles.container}>
         <ScrollView style={styles.fieldsContainer}>
           <TForm.form.Form
-            ref="form"
+            ref={this.formRef}
             type={processedFields}
             options={processedOptions}
           />
