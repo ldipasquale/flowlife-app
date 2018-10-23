@@ -7,13 +7,13 @@ class APIClient {
       baseURL: apiConfig.url,
     })
   }
-  
+
   async get(path) {
     if (this.getResponse) {
       return this.getResponse
     }
 
-    return this.service.get(path).then(response => {
+    return this.service.get(path).then((response) => {
       this.getResponse = response.data
 
       return this.getResponse
@@ -25,8 +25,8 @@ class APIClient {
       method: 'PATCH',
       url: path,
       responseType: 'json',
-      data: payload
-    }).then((response) => callback(response.status, response.data))
+      data: payload,
+    }).then(response => callback(response.status, response.data))
   }
 
   post(path, payload, callback) {
@@ -34,9 +34,9 @@ class APIClient {
       method: 'POST',
       url: path,
       responseType: 'json',
-      data: payload
-    }).then((response) => callback(response.status, response.data))
+      data: payload,
+    }).then(response => callback(response.status, response.data))
   }
 }
 
-export default new APIClient
+export default new APIClient()
