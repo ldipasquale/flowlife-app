@@ -3,6 +3,7 @@ import { Image } from 'react-native'
 import { createDrawerNavigator } from 'react-navigation'
 
 import { Sidebar } from '@components'
+import withEntities from '@entities'
 
 import Home from './Home'
 import Battles from './Battles'
@@ -25,9 +26,13 @@ const navigatorItems = screensList.reduce((screensAccumulator, Screen) => {
     ),
   }
 
+  const ProcessedScreen = Screen.entities
+    ? withEntities(Screen)(Screen.entities)
+    : Screen
+
   return {
     ...screensAccumulator,
-    [Screen.label]: Screen,
+    [Screen.label]: ProcessedScreen,
   }
 }, {})
 

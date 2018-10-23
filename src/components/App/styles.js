@@ -14,9 +14,12 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
+  contentContainer: {
+    flexGrow: 1,
+  },
   content: {
-    padding: spacings.LARGE,
     flex: 1,
+    padding: spacings.LARGE,
   },
   managerButton: {
     position: 'absolute',

@@ -1,6 +1,7 @@
 export default {
   VIOLET: '#152888',
   LIGHT_GRAY: '#F5F5F5',
+  GRAY: '#BFC1BF',
   DARK_GRAY: '#666',
   WHITE: '#fff',
   BLACK: '#111',

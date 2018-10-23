@@ -4,5 +4,6 @@ export default {
   SMALL: 11,
   STANDARD: 15,
   LARGE: 17,
+  XLARGE: 20,
   HUGE: 32,
 }

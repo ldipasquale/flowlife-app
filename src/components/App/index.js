@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { View } from 'react-native'
+import { View, ScrollView } from 'react-native'
 
 import Header from './Header'
 import Manager from './Manager'
@@ -27,9 +27,12 @@ class App extends React.PureComponent {
             />
           )}
 
-          <View style={styles.content}>
+          <ScrollView
+            style={styles.content}
+            contentContainerStyle={styles.contentContainer}
+          >
             {children}
-          </View>
+          </ScrollView>
         </View>
       </View>
     )

@@ -9,4 +9,5 @@ export default {
   XLARGE: 24,
   HUGE: 32,
   XHUGE: 40,
+  XXHUGE: 48,
 }

@@ -6,12 +6,12 @@ import styles from './styles'
 
 class Value extends React.PureComponent {
   render() {
-    const { children, color, fontSize, style } = this.props
+    const { children, color, fontSize, style, size } = this.props
 
     return (
       <Text
         style={[
-          styles.value,
+          styles[size],
           color !== null && {
             color,
           },
@@ -36,12 +36,14 @@ Value.propTypes = {
   color: PropTypes.string,
   fontSize: PropTypes.number,
   style: PropTypes.number,
+  size: PropTypes.oneOf(['xsmall', 'small', 'standard']),
 }
 
 Value.defaultProps = {
   color: null,
   fontSize: null,
   style: null,
+  size: 'standard',
 }
 
 export default Value

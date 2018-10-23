@@ -25,9 +25,4 @@ export default StyleSheet.create({
   leftIcon: {
     marginRight: spacings.MEDIUM,
   },
-  avatarIcon: {
-    width: 32,
-    height: 32,
-    borderRadius: 32,
-  },
 })

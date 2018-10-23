@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { App } from '@components'
+import { App, Spinner } from '@components'
 import assets from '@assets'
 import screens from '@screens'
 

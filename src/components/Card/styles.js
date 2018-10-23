@@ -16,4 +16,7 @@ export default StyleSheet.create({
       width: 0,
     },
   },
+  title: {
+    marginBottom: spacings.STANDARD,
+  },
 })

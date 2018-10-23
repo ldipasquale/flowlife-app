@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
 
 import { View, TouchableOpacity, Text, Image } from 'react-native'
+import { Avatar } from '@components'
 
 import assets from '@assets'
 
@@ -30,10 +31,7 @@ class Header extends React.PureComponent {
 
         {avatarUrl && (
           <View style={styles.column}>
-            <Image
-              source={{ uri: avatarUrl }}
-              style={styles.avatarIcon}
-            />
+            <Avatar url={avatarUrl} />
           </View>
         )}
       </View>
