@@ -12,6 +12,6 @@ export default StyleSheet.create({
   },
   text: {
     color: colors.WHITE,
-    fontSize: fontSizes.XXSMALL,
+    fontSize: fontSizes.TINY,
   },
 })

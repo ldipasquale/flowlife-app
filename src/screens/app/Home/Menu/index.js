@@ -31,7 +31,7 @@ class Menu extends React.PureComponent {
 
           <Title
             color={color}
-            fontSize={fontSizes.SMALL}
+            fontSize={fontSizes.XSMALL}
           >
             {label}
           </Title>
@@ -56,10 +56,10 @@ class Menu extends React.PureComponent {
     this.handlePressItem = this.handlePressItem.bind(this)
 
     this.items = [Battles, Shop, Investments].map(Screen => ({
-      label: Screen.label,
-      icon: Screen.icon,
-      color: Screen.color,
-      onPress: () => this.handlePressItem(Screen.label),
+      label: Screen.navigationOptions.label,
+      icon: Screen.navigationOptions.icon,
+      color: Screen.navigationOptions.color,
+      onPress: () => this.handlePressItem(Screen.navigationOptions.label),
     }))
   }
 

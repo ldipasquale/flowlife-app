@@ -76,7 +76,6 @@ class SignUp extends React.PureComponent {
     return (
       <App
         leftIcon="back"
-        getOnPressLeftIcon={navigation => () => navigation.goBack(null)}
         disableManager
       >
         <Form

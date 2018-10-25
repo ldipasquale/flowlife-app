@@ -10,6 +10,15 @@ import assets from '@assets'
 import styles from './styles'
 
 class Header extends React.PureComponent {
+  static leftIconActions = {
+    menu: navigation => navigation.openDrawer,
+    back: navigation => () => navigation.goBack(null),
+  }
+
+  static onPressLeftIcon(leftIcon) {
+    return Header.leftIconActions[leftIcon]
+  }
+
   render() {
     const { navigation, avatarUrl, leftIcon, getOnPressLeftIcon } = this.props
 
@@ -18,7 +27,7 @@ class Header extends React.PureComponent {
         <View style={styles.column}>
           <TouchableOpacity
             style={styles.leftIcon}
-            onPress={getOnPressLeftIcon(navigation)}
+            onPress={Header.onPressLeftIcon(leftIcon)(navigation)}
             activeOpacity={0.8}
           >
             <Image source={assets[leftIcon]} />
@@ -42,14 +51,12 @@ class Header extends React.PureComponent {
 Header.propTypes = {
   navigation: PropTypes.object.isRequired,
   avatarUrl: PropTypes.string,
-  leftIcon: PropTypes.string,
-  getOnPressLeftIcon: PropTypes.func,
+  leftIcon: PropTypes.oneOf(['menu', 'back']),
 }
 
 Header.defaultProps = {
   avatarUrl: null,
   leftIcon: 'menu',
-  getOnPressLeftIcon: navigation => navigation.openDrawer,
 }
 
 export default withNavigation(Header)

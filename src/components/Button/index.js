@@ -1,40 +1,72 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { TouchableOpacity, Text } from 'react-native'
+import { TouchableOpacity, View, Text } from 'react-native'
 
 import styles from './styles'
 
 class Button extends React.PureComponent {
-  render() {
-    const { children, onPress, color } = this.props
+  constructor(props) {
+    super(props)
+
+    this.getContainerProps = this.getContainerProps.bind(this)
+    this.renderContent = this.renderContent.bind(this)
+  }
+
+  getContainerProps() {
+    const { color } = this.props
+
+    return {
+      style: [
+        styles.container,
+        color !== null && {
+          backgroundColor: color,
+        },
+      ],
+    }
+  }
+
+  renderContent() {
+    const { children } = this.props
 
     return (
-      <TouchableOpacity
-        style={[
-          styles.container,
-          color !== null && {
-            backgroundColor: color,
-          },
-        ]}
-        onPress={onPress}
-        activeOpacity={0.8}
-      >
-        <Text style={styles.text}>
-          {children.toUpperCase()}
-        </Text>
-      </TouchableOpacity>
+      <Text style={styles.text}>
+        {children.toUpperCase()}
+      </Text>
+    )
+  }
+
+  render() {
+    const { onPress, color } = this.props
+
+    if (onPress) {
+      return (
+        <TouchableOpacity
+          {...this.getContainerProps()}
+          onPress={onPress}
+          activeOpacity={0.8}
+        >
+          {this.renderContent()}
+        </TouchableOpacity>
+      )
+    }
+
+    return (
+      <View {...this.getContainerProps()}>
+        {this.renderContent()}
+      </View>
     )
   }
 }
 
 Button.propTypes = {
   children: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
+  onPress: PropTypes.func,
   color: PropTypes.string,
 }
 
 Button.defaultProps = {
+  onPress: null,
   color: null,
 }
 

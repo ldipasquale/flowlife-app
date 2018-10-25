@@ -1,16 +1,10 @@
-import { createStackNavigator } from 'react-navigation'
+import { createStackNavigator } from '@navigation'
 
 import SignUp from './SignUp'
 import SignIn from './SignIn'
 
-const screensList = [SignUp, SignIn]
+const Screens = [SignUp, SignIn]
 
-const navigatorItems = screensList.reduce((screensAccumulator, Screen) => ({
-  ...screensAccumulator,
-  [Screen.label]: Screen,
-}), {})
-
-export default createStackNavigator(navigatorItems, {
-  headerMode: 'none',
-  initialRouteName: SignIn.label,
+export default createStackNavigator(Screens, {
+  initialRouteName: SignIn.navigationOptions.label,
 })

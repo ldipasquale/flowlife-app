@@ -18,7 +18,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    color: colors.DARK_GRAY,
+    color: colors.DARKEN_GRAY,
     letterSpacing: 0.2,
     fontSize: fontSizes.LARGE,
   },

@@ -5,6 +5,6 @@ export default StyleSheet.create({
   title: {
     letterSpacing: others.LETTER_SPACING,
     fontWeight: '600',
-    fontSize: fontSizes.XSMALL,
+    fontSize: fontSizes.XXSMALL,
   },
 })

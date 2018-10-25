@@ -9,11 +9,11 @@ import { colors } from '@stylesheets'
 import screens from '@screens'
 
 class Investments extends React.PureComponent {
-  static label = screens.INVESTMENTS
-
-  static icon = assets.investments
-
-  static color = colors.BLUE
+  static navigationOptions = {
+    label: screens.INVESTMENTS,
+    icon: assets.investments,
+    color: colors.BLUE,
+  }
 
   render() {
     return (

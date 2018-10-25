@@ -5,8 +5,10 @@ import {
 
 export default StyleSheet.create({
   container: {
+    alignSelf: 'center',
     backgroundColor: colors.BLACK,
     borderRadius: spacings.LARGER,
+    marginTop: spacings.STANDARD,
     padding: spacings.STANDARD,
     paddingLeft: spacings.HUGE,
     paddingRight: spacings.HUGE,

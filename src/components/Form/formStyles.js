@@ -2,7 +2,7 @@ import { colors, spacings, fontSizes } from '@stylesheets'
 
 const LABEL_COLOR = colors.BLACK
 const LABEL_FONT_SIZE = fontSizes.STANDARD
-const INPUT_COLOR = colors.DARK_GRAY
+const INPUT_COLOR = colors.DARKEN_GRAY
 const ERROR_COLOR = colors.RED
 const HELP_COLOR = '#999999'
 const BORDER_COLOR = '#cccccc'
