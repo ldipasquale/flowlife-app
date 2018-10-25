@@ -45,12 +45,12 @@ const processScreen = Screen => {
       }
     }
 
-    ProcessedScreen.navigationOptions = Screen.navigationOptions
+    ProcessedScreen.screenOptions = Screen.screenOptions
   }
 
-  if (ProcessedScreen.navigationOptions && ProcessedScreen.navigationOptions.modals) {
-    const modals = ProcessedScreen.navigationOptions.modals
-    delete ProcessedScreen.navigationOptions.modals
+  if (ProcessedScreen.screenOptions && ProcessedScreen.screenOptions.modals) {
+    const modals = ProcessedScreen.screenOptions.modals
+    delete ProcessedScreen.screenOptions.modals
 
     ProcessedScreen = createModalScreen(ProcessedScreen, modals)
   }
@@ -61,8 +61,8 @@ const processScreen = Screen => {
 const screenId = 0
 
 const getScreenLabel = Screen => {
-  if (Screen.navigationOptions) {
-    return Screen.navigationOptions.label || Screen.navigationOptions.id
+  if (Screen.screenOptions) {
+    return Screen.screenOptions.label || Screen.screenOptions.id
   }
 
   return screenId++

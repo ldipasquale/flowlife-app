@@ -12,7 +12,7 @@ import screens from '@screens'
 import styles from './styles'
 
 class ManagerTip extends React.PureComponent {
-  static navigationOptions = {
+  static screenOptions = {
     id: screens.MANAGER_TIP,
   }
 

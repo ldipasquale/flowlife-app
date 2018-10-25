@@ -56,10 +56,10 @@ class Menu extends React.PureComponent {
     this.handlePressItem = this.handlePressItem.bind(this)
 
     this.items = [Battles, Shop, Investments].map(Screen => ({
-      label: Screen.navigationOptions.label,
-      icon: Screen.navigationOptions.icon,
-      color: Screen.navigationOptions.color,
-      onPress: () => this.handlePressItem(Screen.navigationOptions.label),
+      label: Screen.screenOptions.label,
+      icon: Screen.screenOptions.icon,
+      color: Screen.screenOptions.color,
+      onPress: () => this.handlePressItem(Screen.screenOptions.label),
     }))
   }
 

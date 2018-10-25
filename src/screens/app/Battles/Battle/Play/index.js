@@ -9,7 +9,7 @@ import { colors } from '@stylesheets'
 import screens from '@screens'
 
 class PlayBattle extends React.Component {
-  static navigationOptions = {
+  static screenOptions = {
     id: screens.PLAY_BATTLE,
   }
 

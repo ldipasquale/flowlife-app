@@ -8,7 +8,7 @@ import Stats from './Stats'
 import Menu from './Menu'
 
 class Home extends React.PureComponent {
-  static navigationOptions = {
+  static screenOptions = {
     label: screens.HOME,
     icon: assets.shop,
   }

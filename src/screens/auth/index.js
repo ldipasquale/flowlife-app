@@ -6,5 +6,5 @@ import SignIn from './SignIn'
 const Screens = [SignUp, SignIn]
 
 export default createStackNavigator(Screens, {
-  initialRouteName: SignIn.navigationOptions.label,
+  initialRouteName: SignIn.screenOptions.label,
 })

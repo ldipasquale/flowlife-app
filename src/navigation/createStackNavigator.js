@@ -8,8 +8,8 @@ export default (Screens, Config = {}) => {
     ...Config,
   })
 
-  if (Config.navigationOptions) {
-    StackNavigator.navigationOptions = Config.navigationOptions
+  if (Config.screenOptions) {
+    StackNavigator.screenOptions = Config.screenOptions
   }
 
   return StackNavigator

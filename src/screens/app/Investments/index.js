@@ -9,7 +9,7 @@ import { colors } from '@stylesheets'
 import screens from '@screens'
 
 class Investments extends React.PureComponent {
-  static navigationOptions = {
+  static screenOptions = {
     label: screens.INVESTMENTS,
     icon: assets.investments,
     color: colors.BLUE,

@@ -13,7 +13,7 @@ import screens from '@screens'
 import Play from './Play'
 
 class Battle extends React.PureComponent {
-  static navigationOptions = {
+  static screenOptions = {
     label: screens.BATTLE,
     modals: [Play],
   }
@@ -25,15 +25,7 @@ class Battle extends React.PureComponent {
   render() {
     const { navigation } = this.props
 
-    /*
     const { arena } = navigation.state.params
-    */
-
-    const arena = {
-      name: 'a',
-      capacity: 2,
-      cost: 44,
-    }
 
     return (
       <App leftIcon="back">
