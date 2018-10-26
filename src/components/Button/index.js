@@ -37,7 +37,7 @@ class Button extends React.PureComponent {
   }
 
   render() {
-    const { onPress, color } = this.props
+    const { onPress } = this.props
 
     if (onPress) {
       return (

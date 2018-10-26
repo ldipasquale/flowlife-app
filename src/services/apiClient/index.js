@@ -6,17 +6,19 @@ class APIClient {
     this.service = axios.create({
       baseURL: apiConfig.url,
     })
+
+    this.getResponses = {}
   }
 
   async get(path) {
-    if (this.getResponse) {
-      return this.getResponse
+    if (this.getResponses[path]) {
+      return this.getResponses[path]
     }
 
     return this.service.get(path).then((response) => {
-      this.getResponse = response.data
+      this.getResponses[path] = response.data
 
-      return this.getResponse
+      return response.data
     })
   }
 

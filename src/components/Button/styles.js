@@ -8,10 +8,9 @@ export default StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: colors.BLACK,
     borderRadius: spacings.LARGER,
-    marginTop: spacings.STANDARD,
-    padding: spacings.STANDARD,
-    paddingLeft: spacings.HUGE,
-    paddingRight: spacings.HUGE,
+    marginTop: spacings.MEDIUM,
+    paddingVertical: spacings.SMALL,
+    paddingHorizontal: spacings.HUGE,
   },
   text: {
     color: colors.WHITE,

@@ -4,7 +4,7 @@ import services from '@services'
 
 import createModalScreen from './createModalScreen'
 
-const processScreen = Screen => {
+const processScreen = (Screen) => {
   let ProcessedScreen = Screen
 
   if (Screen.entities) {
@@ -49,7 +49,7 @@ const processScreen = Screen => {
   }
 
   if (ProcessedScreen.screenOptions && ProcessedScreen.screenOptions.modals) {
-    const modals = ProcessedScreen.screenOptions.modals
+    const { modals } = ProcessedScreen.screenOptions
     delete ProcessedScreen.screenOptions.modals
 
     ProcessedScreen = createModalScreen(ProcessedScreen, modals)
@@ -58,14 +58,16 @@ const processScreen = Screen => {
   return ProcessedScreen
 }
 
-const screenId = 0
+let screenId = 0
 
-const getScreenLabel = Screen => {
+const getScreenLabel = (Screen) => {
   if (Screen.screenOptions) {
     return Screen.screenOptions.label || Screen.screenOptions.id
   }
 
-  return screenId++
+  screenId += 1
+
+  return screenId
 }
 
 export default (Screens, mapFunction = Screen => Screen) => Screens.reduce((screensAccumulator, Screen) => ({

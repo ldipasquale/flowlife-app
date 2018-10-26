@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
 
 import { View, TouchableOpacity, Image } from 'react-native'
@@ -23,6 +24,10 @@ class Manager extends React.PureComponent {
       </View>
     )
   }
+}
+
+Manager.propTypes = {
+  navigation: PropTypes.object.isRequired,
 }
 
 export default withNavigation(Manager)

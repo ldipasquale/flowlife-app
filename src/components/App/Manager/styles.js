@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { colors, spacings } from '@stylesheets'
+import { spacings } from '@stylesheets'
 
 export default StyleSheet.create({
   button: {

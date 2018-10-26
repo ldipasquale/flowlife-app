@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { colors, spacings, fontSizes, others } from '@stylesheets'
+import { colors, spacings, others } from '@stylesheets'
 
 export default StyleSheet.create({
   fullScreenContainer: {
@@ -36,6 +36,5 @@ export default StyleSheet.create({
     borderRadius: others.BORDER_RADIUS,
     margin: spacings.STANDARD,
     padding: spacings.LARGE,
-    alignItems: 'center',
   },
 })

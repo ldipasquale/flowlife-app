@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 import { Modal, Button } from '@components'
 
 import { colors } from '@stylesheets'
@@ -28,8 +28,7 @@ class PlayBattle extends React.Component {
             </Button>
           </React.Fragment>
         )}
-      >
-      </Modal>
+      />
     )
   }
 }

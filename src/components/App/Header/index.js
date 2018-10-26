@@ -20,7 +20,7 @@ class Header extends React.PureComponent {
   }
 
   render() {
-    const { navigation, avatarUrl, leftIcon, getOnPressLeftIcon } = this.props
+    const { navigation, avatarUrl, leftIcon } = this.props
 
     return (
       <View style={styles.container}>

@@ -1,31 +1,76 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { withNavigation } from 'react-navigation'
 
-import { View, Text } from 'react-native'
-import { App, Card } from '@components'
+import { App, Card, ItemList, Spinner, StoreItem } from '@components'
 
 import assets from '@assets'
 import { colors } from '@stylesheets'
 
 import screens from '@screens'
 
+import Buy from './Buy'
+
 class Investments extends React.PureComponent {
   static screenOptions = {
     label: screens.INVESTMENTS,
     icon: assets.investments,
     color: colors.BLUE,
+    modals: [Buy],
+  }
+
+  static entities = ['investments']
+
+  constructor(props) {
+    super(props)
+
+    this.renderItem = this.renderItem.bind(this)
+  }
+
+  renderItem(item) {
+    const { navigation } = this.props
+
+    return (
+      <Card
+        onPress={() => navigation.navigate(screens.BUY_INVESTMENT_ITEM, { item })}
+      >
+        <StoreItem
+          imageSource={assets.water}
+          title={item.nice_name}
+          price={item.money_cost}
+        />
+      </Card>
+    )
   }
 
   render() {
+    const { investments, isFetching } = this.props
+
     return (
       <App>
-        <View>
-          <Card>
-            <Text>asdfsssasdf</Text>
-          </Card>
-        </View>
+        {isFetching ? (
+          <Spinner />
+        ) : (
+          <ItemList
+            idKey="name"
+            items={investments}
+            renderItem={this.renderItem}
+          />
+        )}
       </App>
     )
   }
 }
 
-export default Investments
+Investments.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  investments: PropTypes.array,
+  isFetching: PropTypes.bool,
+}
+
+Investments.defaultProps = {
+  investments: [],
+  isFetching: true,
+}
+
+export default withNavigation(Investments)

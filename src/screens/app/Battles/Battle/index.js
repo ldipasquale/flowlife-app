@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
 import numeral from 'numeral'
 
-import { App, Card, Arena, Spinner, Bullet, Button } from '@components'
+import { App, Card, Arena, Bullet, Button } from '@components'
 
 import { formats } from '@constants'
 import { colors } from '@stylesheets'
@@ -18,14 +18,16 @@ class Battle extends React.PureComponent {
     modals: [Play],
   }
 
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     const { navigation } = this.props
 
-    const { arena } = navigation.state.params
+    // const { arena } = navigation.state.params
+
+    const arena = {
+      name: 'Bitflow',
+      capacity: 200,
+      cost: 30940,
+    }
 
     return (
       <App leftIcon="back">
@@ -39,7 +41,11 @@ class Battle extends React.PureComponent {
 
         <Card title="Condiciones">
           <Bullet title="Entrada">{numeral(arena.cost).format(formats.CURRENCY)}</Bullet>
-          <Bullet title="Premio">{arena.capacity} fans nuevos</Bullet>
+          <Bullet title="Premio">
+            {arena.capacity}
+            {' '}
+fans nuevos
+          </Bullet>
           <Bullet title="Tipo de Concierto">Punchline Mode</Bullet>
         </Card>
 
@@ -55,6 +61,7 @@ class Battle extends React.PureComponent {
 }
 
 Battle.propTypes = {
+  navigation: PropTypes.object.isRequired,
 }
 
 Battle.defaultProps = {

@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
 
-import { Image, View } from 'react-native'
-import { AlertLabel, Card, Title } from '@components'
+import { Image } from 'react-native'
+import { AlertLabel, Card, Title, ItemList } from '@components'
 
 import { fontSizes } from '@stylesheets'
 
@@ -16,10 +16,7 @@ import styles from './styles'
 class Menu extends React.PureComponent {
   static renderItem({ onPress, color, label, icon, alertsAmount }) {
     return (
-      <View
-        key={label}
-        style={styles.cardContainer}
-      >
+      <React.Fragment>
         <Card
           style={styles.card}
           onPress={onPress}
@@ -46,7 +43,7 @@ class Menu extends React.PureComponent {
             {alertsAmount}
           </AlertLabel>
         )}
-      </View>
+      </React.Fragment>
     )
   }
 
@@ -71,9 +68,11 @@ class Menu extends React.PureComponent {
 
   render() {
     return (
-      <View style={styles.container}>
-        {this.items.map(Menu.renderItem)}
-      </View>
+      <ItemList
+        idKey="label"
+        items={this.items}
+        renderItem={Menu.renderItem}
+      />
     )
   }
 }

@@ -5,7 +5,6 @@ import { withNavigation } from 'react-navigation'
 import { Dimensions, View, Image, Animated, Easing, TouchableOpacity } from 'react-native'
 
 import assets from '@assets'
-import { spacings } from '@stylesheets'
 
 import styles from './styles'
 
@@ -118,14 +117,13 @@ class Modal extends React.PureComponent {
 }
 
 Modal.propTypes = {
+  navigation: PropTypes.object.isRequired,
   renderContent: PropTypes.func.isRequired,
-  onClose: PropTypes.func,
   onOpen: PropTypes.func,
-  alignment: PropTypes.oneOf(['center', 'bottom'])
+  alignment: PropTypes.oneOf(['center', 'bottom']),
 }
 
 Modal.defaultProps = {
-  onClose: null,
   onOpen: null,
   alignment: 'center',
 }
