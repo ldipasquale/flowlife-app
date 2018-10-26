@@ -8,6 +8,7 @@ import assets from '@assets'
 import { colors } from '@stylesheets'
 
 import screens from '@screens'
+import StoreService from '@services/Store'
 
 import styles from './styles'
 
@@ -25,20 +26,26 @@ class BuyShopItem extends React.PureComponent {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleTypeChange(typeId) {
+  handleTypeChange(id) {
     return this.setState({
-      selectedTypeId: typeId,
+      selectedPaymentMethod: id,
     })
   }
 
-  handleSubmit() {
-    const { selectedTypeId } = this.state
+  async handleSubmit() {
+    const { selectedPaymentMethod } = this.state
     const { navigation } = this.props
 
     const { item } = navigation.state.params
 
-    console.log(selectedTypeId)
-    console.log(item)
+    try {
+      const managerTip = await StoreService.buy({
+        item,
+        paymentMethod: selectedPaymentMethod,
+      })
+    } catch(error) {
+      console.log(error)
+    }
   }
 
   render() {

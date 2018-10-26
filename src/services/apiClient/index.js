@@ -22,22 +22,13 @@ class APIClient {
     })
   }
 
-  patch(path, payload, callback) {
-    return this.service.request({
-      method: 'PATCH',
-      url: path,
-      responseType: 'json',
-      data: payload,
-    }).then(response => callback(response.status, response.data))
-  }
-
-  post(path, payload, callback) {
-    return this.service.request({
+  post(path) {
+    return async (payload) => this.service.request({
       method: 'POST',
       url: path,
       responseType: 'json',
       data: payload,
-    }).then(response => callback(response.status, response.data))
+    }).then(response => response.data)
   }
 }
 
