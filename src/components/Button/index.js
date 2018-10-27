@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { TouchableOpacity, View, Text } from 'react-native'
+import { TouchableOpacity, Text } from 'react-native'
 
 import styles from './styles'
 
