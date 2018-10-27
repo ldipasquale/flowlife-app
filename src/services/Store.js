@@ -7,5 +7,5 @@ export default {
     item_id: item.name,
     payment_method: paymentMethod,
     email: 'yolucianodipasquale@gmail.com',
-  })
+  }),
 }

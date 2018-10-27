@@ -4,6 +4,8 @@ import { AsyncStorage } from 'react-native'
 import { App, Form } from '@components'
 import { FieldTypes } from '@components/Form'
 
+import { Toast } from '@navigation'
+
 import screens from '@screens'
 
 import UsersService from '@services/Users'
@@ -62,8 +64,8 @@ class SignUp extends React.PureComponent {
       if (isSignedUp) {
         AsyncStorage.setItem('email', values.email)
       }
-    } catch(error) {
-      console.log(error)
+    } catch (error) {
+      Toast.show('Oops. Ocurrió un error.')
     }
   }
 

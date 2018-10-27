@@ -23,7 +23,7 @@ class APIClient {
   }
 
   post(path) {
-    return async (payload) => this.service.request({
+    return async payload => this.service.request({
       method: 'POST',
       url: path,
       responseType: 'json',

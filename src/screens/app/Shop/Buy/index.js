@@ -7,6 +7,8 @@ import { Modal, Button, StoreItem, OptionsSelector } from '@components'
 import assets from '@assets'
 import { colors } from '@stylesheets'
 
+import { Toast } from '@navigation'
+
 import screens from '@screens'
 import StoreService from '@services/Store'
 
@@ -36,6 +38,8 @@ class BuyShopItem extends React.PureComponent {
     const { selectedPaymentMethod } = this.state
     const { navigation } = this.props
 
+    Toast.show('This is a message')
+
     const { item } = navigation.state.params
 
     try {
@@ -43,8 +47,10 @@ class BuyShopItem extends React.PureComponent {
         item,
         paymentMethod: selectedPaymentMethod,
       })
-    } catch(error) {
-      console.log(error)
+
+      Toast.show('¡Artículo comprado!')
+    } catch (error) {
+      Toast.show('Oops. Ocurrió un error.')
     }
   }
 

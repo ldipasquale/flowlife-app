@@ -9,6 +9,8 @@ import { FieldTypes } from '@components/Form'
 import { colors } from '@stylesheets'
 import screens from '@screens'
 
+import { Toast } from '@navigation'
+
 import UsersService from '@services/Users'
 
 import styles from './styles'
@@ -43,15 +45,13 @@ class SignIn extends React.PureComponent {
     try {
       const isSignedIn = await UsersService.signIn(values)
 
-      console.log(isSignedIn)
-
       if (isSignedIn) {
         await AsyncStorage.setItem('email', values.email)
 
         navigation.navigate(screens.APP)
       }
-    } catch(error) {
-      console.log(error)
+    } catch (error) {
+      Toast.show('Oops. Ocurrió un error.')
     }
   }
 

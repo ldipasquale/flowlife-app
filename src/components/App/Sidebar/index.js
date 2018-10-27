@@ -36,7 +36,7 @@ class Sidebar extends React.Component {
             <Text style={styles.userName}>Ray Jones</Text>
 
             <TouchableOpacity onPress={this.handleSignOut}>
-              <Image style={styles.logOut} source={assets.logout} /> 
+              <Image style={styles.logOut} source={assets.logout} />
             </TouchableOpacity>
           </View>
         </View>

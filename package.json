@@ -34,6 +34,7 @@
     "numeral": "^2.0.6",
     "react": "16.3.1",
     "react-native": "~0.55.2",
+    "react-native-root-toast": "^3.0.1",
     "react-navigation": "^2.18.1",
     "tcomb-form-native": "^0.6.17",
     "wolfy87-eventemitter": "^5.2.5"
