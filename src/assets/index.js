@@ -1,3 +1,4 @@
+const logout = require('./icons/logout.png')
 const water = require('./icons/water.png')
 const back = require('./icons/back.png')
 const battles = require('./icons/battles.png')
@@ -8,6 +9,7 @@ const menu = require('./icons/menu.png')
 const shop = require('./icons/shop.png')
 
 export default {
+  logout,
   water,
   back,
   battles,

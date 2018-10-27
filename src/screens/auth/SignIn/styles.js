@@ -24,7 +24,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   contentSpacing: {
-    flex: 1.5,
+    flex: 8,
   },
   content: {
     flex: 1,

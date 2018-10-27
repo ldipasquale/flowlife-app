@@ -1,9 +1,11 @@
-import Arenas from './Arenas'
-import Store from './Store'
-import Investments from './Investments'
+import arenas from './Arenas'
+import store from './Store'
+import investments from './Investments'
+import users from './Users'
 
 export default {
-  arenas: Arenas,
-  store: Store,
-  investments: Investments,
+  arenas,
+  store,
+  investments,
+  users,
 }

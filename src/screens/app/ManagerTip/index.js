@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Image, Text } from 'react-native'
+import { View, Image, Text } from 'react-native'
 import { Modal, Title, Button } from '@components'
 
 import assets from '@assets'
@@ -21,7 +21,7 @@ class ManagerTip extends React.PureComponent {
       <Modal
         alignment="bottom"
         renderContent={({ handleClose }) => (
-          <React.Fragment>
+          <View style={styles.container}>
             <Image
               source={assets.manager}
               style={styles.managerIcon}
@@ -45,7 +45,7 @@ class ManagerTip extends React.PureComponent {
             >
               Sacar Crédito
             </Button>
-          </React.Fragment>
+          </View>
         )}
       />
     )

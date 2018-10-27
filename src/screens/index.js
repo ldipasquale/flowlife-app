@@ -11,4 +11,6 @@ export default {
   MANAGER_TIP: 'Manager',
   SIGN_UP: 'Creá tu rapero',
   SIGN_IN: 'Ingresá a la experiencia',
+  APP: 'App',
+  AUTH: 'Auth',
 }

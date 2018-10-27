@@ -1,14 +1,19 @@
 import React from 'react'
 
+import { AsyncStorage } from 'react-native'
 import { App, Form } from '@components'
 import { FieldTypes } from '@components/Form'
 
 import screens from '@screens'
 
+import UsersService from '@services/Users'
+
 import RapperBuilder from './RapperBuilder'
 
 class SignUp extends React.PureComponent {
-  static label = screens.SIGN_UP
+  static screenOptions = {
+    label: screens.SIGN_UP,
+  }
 
   constructor(props) {
     super(props)
@@ -16,12 +21,6 @@ class SignUp extends React.PureComponent {
     this.steps = [{
       button: 'Elegí la apariencia',
       fields: [{
-        id: 'name',
-        name: 'Nombre',
-        type: FieldTypes.STRING,
-        // template: RapperBuilder,
-        isRequired: true,
-      }, {
         id: 'email',
         name: 'Correo electrónico',
         type: FieldTypes.STRING,
@@ -32,44 +31,40 @@ class SignUp extends React.PureComponent {
         type: FieldTypes.STRING,
         isPassword: true,
         isRequired: true,
-      }, {
-        id: 'date',
-        name: 'Fecha de nacimiento',
-        type: FieldTypes.DATE,
-        isRequired: true,
       }],
     }, {
       button: 'Crear Rapero',
       fields: [{
-        id: 'nick',
+        id: 'name',
         name: 'Apodo',
         type: FieldTypes.STRING,
-        isRequired: true,
-      }, {
-        id: 'genre',
-        name: 'Género',
-        type: FieldTypes.OPTIONS,
-        options: {
-          male: 'Masculino',
-          female: 'Femenino',
-        },
         isRequired: true,
       }, {
         id: 'style',
         name: 'Estilo',
         type: FieldTypes.OPTIONS,
         options: {
-          melodic: 'Melódico',
-          singer: 'Cantante',
+          Melodic: 'Melódico',
+          Aggresive: 'Agresivo',
+          Lyric: 'Lírico',
         },
-        isRequired: true,
-      }, {
-        id: 'avatar',
-        name: 'Avatar',
-        type: FieldTypes.STRING,
         isRequired: true,
       }],
     }]
+
+    this.handleSignUp = this.handleSignUp.bind(this)
+  }
+
+  async handleSignUp(values) {
+    try {
+      const isSignedUp = await UsersService.signUp(values)
+
+      if (isSignedUp) {
+        AsyncStorage.setItem('email', values.email)
+      }
+    } catch(error) {
+      console.log(error)
+    }
   }
 
   render() {
@@ -80,7 +75,7 @@ class SignUp extends React.PureComponent {
       >
         <Form
           steps={this.steps}
-          onSubmit={console.warn}
+          onSubmit={this.handleSignUp}
         />
       </App>
     )

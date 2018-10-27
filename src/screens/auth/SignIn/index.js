@@ -2,17 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withNavigation } from 'react-navigation'
 
-import { View, Text, Image } from 'react-native'
+import { AsyncStorage, View, Text, Image } from 'react-native'
 import { App, Form } from '@components'
 import { FieldTypes } from '@components/Form'
 
 import { colors } from '@stylesheets'
 import screens from '@screens'
 
+import UsersService from '@services/Users'
+
 import styles from './styles'
 
 class SignIn extends React.PureComponent {
-  static label = screens.SIGN_IN
+  static screenOptions = {
+    label: screens.SIGN_IN,
+  }
 
   constructor(props) {
     super(props)
@@ -29,6 +33,26 @@ class SignIn extends React.PureComponent {
       isPassword: true,
       isRequired: true,
     }]
+
+    this.handleSignIn = this.handleSignIn.bind(this)
+  }
+
+  async handleSignIn(values) {
+    const { navigation } = this.props
+
+    try {
+      const isSignedIn = await UsersService.signIn(values)
+
+      console.log(isSignedIn)
+
+      if (isSignedIn) {
+        await AsyncStorage.setItem('email', values.email)
+
+        navigation.navigate(screens.APP)
+      }
+    } catch(error) {
+      console.log(error)
+    }
   }
 
   render() {
@@ -57,7 +81,7 @@ class SignIn extends React.PureComponent {
                 fields={this.fields}
                 button="Ingresá a la experiencia"
                 buttonColor={colors.BLUE}
-                onSubmit={console.warn}
+                onSubmit={this.handleSignIn}
               />
             </View>
           </View>

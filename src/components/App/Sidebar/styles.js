@@ -17,9 +17,14 @@ export default StyleSheet.create({
     borderRadius: 96,
     marginBottom: spacings.MEDIUM,
   },
+  userNameContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   userName: {
     color: colors.WHITE,
     fontSize: fontSizes.STANDARD,
+    marginRight: spacings.STANDARD,
   },
   item: {
     paddingHorizontal: spacings.LARGER,
