@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { AsyncStorage, View } from 'react-native'
 import { Spinner } from '@components'
@@ -50,10 +51,16 @@ class Skeleton extends React.PureComponent {
       },
     })(isSignedIn)
 
+    console.log(this.props.user)
+
     return (
       <Layout />
     )
   }
 }
 
-export default Skeleton
+const mapStateToProps = state => ({
+  user: state.user,
+})
+
+export default connect(mapStateToProps)(Skeleton)
