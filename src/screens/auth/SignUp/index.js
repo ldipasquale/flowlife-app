@@ -1,10 +1,9 @@
 import React from 'react'
-
 import { AsyncStorage } from 'react-native'
 import { App, Form } from '@components'
 import { FieldTypes } from '@components/Form'
 
-import { Toast } from '@navigation'
+import { Toast, withNavigation } from '@navigation'
 
 import screens from '@screens'
 
@@ -58,11 +57,15 @@ class SignUp extends React.PureComponent {
   }
 
   async handleSignUp(values) {
+    const { navigation } = this.props
+
     try {
       const isSignedUp = await UsersService.signUp(values)
 
       if (isSignedUp) {
-        AsyncStorage.setItem('email', values.email)
+        await AsyncStorage.setItem('email', values.email)
+
+        navigation.navigate(screens.APP)
       }
     } catch (error) {
       Toast.show('Oops. Ocurrió un error.')
@@ -84,4 +87,4 @@ class SignUp extends React.PureComponent {
   }
 }
 
-export default SignUp
+export default withNavigation(SignUp)

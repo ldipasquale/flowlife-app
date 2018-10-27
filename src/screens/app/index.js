@@ -8,6 +8,6 @@ import Shop from './Shop'
 import Investments from './Investments'
 import ManagerTip from './ManagerTip'
 
-export default createModalScreen(createDrawerNavigator([Shop, Home, Battles, Investments], {
+export default createModalScreen(createDrawerNavigator([Home, Battles, Shop, Investments], {
   contentComponent: Sidebar,
 }), [ManagerTip])

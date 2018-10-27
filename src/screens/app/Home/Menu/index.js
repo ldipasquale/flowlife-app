@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withNavigation } from 'react-navigation'
 
 import { Image } from 'react-native'
 import { AlertLabel, Card, Title, ItemList } from '@components'
+
+import { withNavigation } from '@navigation'
 
 import { fontSizes } from '@stylesheets'
 

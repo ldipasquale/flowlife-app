@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withNavigation } from 'react-navigation'
 
 import { App, Card, Arena, Spinner } from '@components'
+
+import { withNavigation } from '@navigation'
 
 import screens from '@screens'
 

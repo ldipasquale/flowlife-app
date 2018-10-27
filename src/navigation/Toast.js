@@ -1,4 +1,4 @@
-import Toast from 'react-native-root-toast';
+import Toast from 'react-native-root-toast'
 
 import { colors, spacings, fontSizes } from '@stylesheets'
 
@@ -10,7 +10,7 @@ export default {
       paddingVertical: spacings.SMALL,
     },
     textStyle: {
-      fontSize: fontSizes.SMALL,
+      fontSize: fontSizes.STANDARD,
     },
   }),
 }

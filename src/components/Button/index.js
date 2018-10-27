@@ -6,55 +6,24 @@ import { TouchableOpacity, View, Text } from 'react-native'
 import styles from './styles'
 
 class Button extends React.PureComponent {
-  constructor(props) {
-    super(props)
-
-    this.getContainerProps = this.getContainerProps.bind(this)
-    this.renderContent = this.renderContent.bind(this)
-  }
-
-  getContainerProps() {
-    const { color } = this.props
-
-    return {
-      style: [
-        styles.container,
-        color !== null && {
-          backgroundColor: color,
-        },
-      ],
-    }
-  }
-
-  renderContent() {
-    const { children } = this.props
-
-    return (
-      <Text style={styles.text}>
-        {children.toUpperCase()}
-      </Text>
-    )
-  }
-
   render() {
-    const { onPress } = this.props
-
-    if (onPress) {
-      return (
-        <TouchableOpacity
-          {...this.getContainerProps()}
-          onPress={onPress}
-          activeOpacity={0.8}
-        >
-          {this.renderContent()}
-        </TouchableOpacity>
-      )
-    }
+    const { onPress, color, children } = this.props
 
     return (
-      <View {...this.getContainerProps()}>
-        {this.renderContent()}
-      </View>
+      <TouchableOpacity
+        style={[
+          styles.container,
+          color !== null && {
+            backgroundColor: color,
+          },
+        ]}
+        onPress={onPress}
+        activeOpacity={0.8}
+      >
+        <Text style={styles.text}>
+          {children.toUpperCase()}
+        </Text>
+      </TouchableOpacity>
     )
   }
 }

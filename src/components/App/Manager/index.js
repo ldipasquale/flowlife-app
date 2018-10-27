@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withNavigation } from 'react-navigation'
 
 import { View, TouchableOpacity, Image } from 'react-native'
+
+import { withNavigation } from '@navigation'
 
 import assets from '@assets'
 import screens from '@screens'

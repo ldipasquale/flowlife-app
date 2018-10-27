@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withNavigation } from 'react-navigation'
 import numeral from 'numeral'
 
 import { App, Card, Arena, Bullet, Button } from '@components'
+
+import { withNavigation } from '@navigation'
 
 import { formats } from '@constants'
 import { colors } from '@stylesheets'

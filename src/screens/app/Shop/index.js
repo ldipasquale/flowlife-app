@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withNavigation } from 'react-navigation'
-
 import { App, Card, ItemList, Spinner, StoreItem } from '@components'
+
+import { withNavigation } from '@navigation'
 
 import assets from '@assets'
 import { colors } from '@stylesheets'

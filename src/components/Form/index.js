@@ -20,7 +20,11 @@ class Form extends React.PureComponent {
     const { steps, onSubmit } = this.props
     const { values, currentStepIndex } = this.state
 
-    const isLastStep = currentStepIndex === steps.length - 1
+    const stepsLength = steps.length > 0
+      ? steps.length
+      : 1
+
+    const isLastStep = currentStepIndex === stepsLength - 1
 
     return this.setState({
       values: {
@@ -30,7 +34,7 @@ class Form extends React.PureComponent {
       ...!isLastStep ? {
         currentStepIndex: currentStepIndex + 1,
       } : null,
-    }, () => currentStepIndex && onSubmit(this.state.values))
+    }, () => isLastStep && onSubmit(this.state.values))
   }
 
   render() {

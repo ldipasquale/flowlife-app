@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withNavigation } from 'react-navigation'
-
 import { AsyncStorage, View, Text, Image } from 'react-native'
 import { App, Form } from '@components'
 import { FieldTypes } from '@components/Form'
@@ -9,7 +7,7 @@ import { FieldTypes } from '@components/Form'
 import { colors } from '@stylesheets'
 import screens from '@screens'
 
-import { Toast } from '@navigation'
+import { Toast, withNavigation } from '@navigation'
 
 import UsersService from '@services/Users'
 
@@ -49,6 +47,8 @@ class SignIn extends React.PureComponent {
         await AsyncStorage.setItem('email', values.email)
 
         navigation.navigate(screens.APP)
+      } else {
+        Toast.show('No encontramos al usuario. Por favor, intenta de nuevo.')
       }
     } catch (error) {
       Toast.show('Oops. Ocurrió un error.')
