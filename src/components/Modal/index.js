@@ -47,10 +47,16 @@ class Modal extends React.PureComponent {
   }
 
   handleClose() {
-    const { navigation } = this.props
+    const { navigation, onClose } = this.props
 
     return this.animateContent(HIDDEN_CONTENT_BOTTOM_POSITION).start(() => (
-      this.animateOverlay(0).start(() => navigation.goBack())
+      this.animateOverlay(0).start(() => {
+        navigation.goBack()
+
+        if (onClose) {
+          onClose()
+        }
+      })
     ))
   }
 
@@ -120,11 +126,13 @@ Modal.propTypes = {
   navigation: PropTypes.object.isRequired,
   renderContent: PropTypes.func.isRequired,
   onOpen: PropTypes.func,
+  onClose: PropTypes.func,
   alignment: PropTypes.oneOf(['center', 'bottom']),
 }
 
 Modal.defaultProps = {
   onOpen: null,
+  onClose: null,
   alignment: 'center',
 }
 

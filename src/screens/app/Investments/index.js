@@ -7,7 +7,7 @@ import { withNavigation } from '@navigation'
 import assets from '@assets'
 import { colors } from '@stylesheets'
 
-import screens from '@screens'
+import screens from '@screens/list'
 
 import Buy from './Buy'
 

@@ -1,26 +1,9 @@
-import React from 'react'
+import { connect } from 'react-redux'
 
-import { App } from '@components'
-import assets from '@assets'
-import screens from '@screens'
+import Layout from './Layout'
 
-import Stats from './Stats'
-import Menu from './Menu'
+const mapStateToProps = state => ({
+  user: state.user,
+})
 
-class Home extends React.PureComponent {
-  static screenOptions = {
-    label: screens.HOME,
-    icon: assets.shop,
-  }
-
-  render() {
-    return (
-      <App>
-        <Stats />
-        <Menu />
-      </App>
-    )
-  }
-}
-
-export default Home
+export default connect(mapStateToProps)(Layout)

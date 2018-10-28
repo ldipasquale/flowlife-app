@@ -9,7 +9,7 @@ import { withNavigation } from '@navigation'
 import { formats } from '@constants'
 import { colors } from '@stylesheets'
 
-import screens from '@screens'
+import screens from '@screens/list'
 
 import Play from './Play'
 

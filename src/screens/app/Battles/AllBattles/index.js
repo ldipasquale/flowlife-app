@@ -5,7 +5,7 @@ import { App, Card, Arena, Spinner } from '@components'
 
 import { withNavigation } from '@navigation'
 
-import screens from '@screens'
+import screens from '@screens/list'
 
 class AllBattles extends React.PureComponent {
   static screenOptions = {

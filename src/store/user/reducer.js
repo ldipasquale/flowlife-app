@@ -1,6 +1,6 @@
 import types from './types'
 
-const initialState = {hola:'chau'}
+const initialState = {}
 
 export default function (state = initialState, action) {
   switch (action.type) {

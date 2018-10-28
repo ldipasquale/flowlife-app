@@ -6,7 +6,7 @@ import { Modal, Button } from '@components'
 
 import { colors } from '@stylesheets'
 
-import screens from '@screens'
+import screens from '@screens/list'
 
 class PlayBattle extends React.Component {
   static screenOptions = {

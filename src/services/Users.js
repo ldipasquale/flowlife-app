@@ -7,4 +7,5 @@ export default {
     return ok
   },
   signUp: values => apiClient.post('rapper')(values),
+  get: id => apiClient.get(`rapper/${id}`),
 }

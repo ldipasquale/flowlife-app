@@ -6,7 +6,7 @@ import { View, TouchableOpacity, Image } from 'react-native'
 import { withNavigation } from '@navigation'
 
 import assets from '@assets'
-import screens from '@screens'
+import screens from '@screens/list'
 
 import styles from './styles'
 

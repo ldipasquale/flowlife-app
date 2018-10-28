@@ -1,110 +1,32 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import { View } from 'react-native'
-import { Modal, Button, StoreItem, OptionsSelector } from '@components'
-
-import assets from '@assets'
-import { colors } from '@stylesheets'
+import StoreService from '@services/Store'
+import { makeAction } from '@store/actions'
 
 import { Toast } from '@navigation'
 
-import screens from '@screens'
-import StoreService from '@services/Store'
+import Layout from './Layout'
 
-import styles from './styles'
+const mapStateToProps = state => ({
+  money: state.user.wallet.cash,
+  creditCardBalance: state.user.credit_card.next_closure_balance,
+})
 
-class BuyShopItem extends React.PureComponent {
-  static screenOptions = {
-    id: screens.BUY_SHOP_ITEM,
-  }
-
-  constructor(props) {
-    super(props)
-
-    this.state = {}
-
-    this.handleTypeChange = this.handleTypeChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleTypeChange(id) {
-    return this.setState({
-      selectedPaymentMethod: id,
-    })
-  }
-
-  async handleSubmit() {
-    const { selectedPaymentMethod } = this.state
-    const { navigation } = this.props
-
-    Toast.show('This is a message')
-
-    const { item } = navigation.state.params
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onBuyItem: async ({ item, paymentMethod }) => {
+    const { navigation } = ownProps
 
     try {
-      const managerTip = await StoreService.buy({
+      const response = await StoreService.buy({
         item,
-        paymentMethod: selectedPaymentMethod,
+        paymentMethod,
       })
 
-      Toast.show('¡Artículo comprado!')
+      dispatch(makeAction({ navigation, response }))
     } catch (error) {
       Toast.show('Oops. Ocurrió un error.')
     }
-  }
+  },
+})
 
-  render() {
-    const { navigation } = this.props
-
-    const { item } = navigation.state.params
-
-    return (
-      <Modal
-        renderContent={({ handleClose }) => (
-          <React.Fragment>
-            <StoreItem
-              size="big"
-              imageSource={assets.water}
-              tag={`+${item.flow} flow`}
-              tagColor={colors.ORANGE}
-              title={item.name}
-              price={item.price}
-            />
-
-            <View style={styles.typeSelectorContainer}>
-              <OptionsSelector
-                options={[{
-                  id: 'cash',
-                  name: 'Efectivo',
-                  subtitle: '$18.000',
-                }, {
-                  id: 'credit',
-                  name: 'Tarjeta',
-                  subtitle: '-$9.400',
-                }]}
-                onChange={this.handleTypeChange}
-              />
-            </View>
-
-            <Button
-              color={colors.GREEN}
-              onPress={() => {
-                this.handleSubmit()
-                handleClose()
-              }}
-            >
-              Comprar ahora
-            </Button>
-          </React.Fragment>
-        )}
-      />
-    )
-  }
-}
-
-BuyShopItem.propTypes = {
-  navigation: PropTypes.object.isRequired,
-}
-
-export default BuyShopItem
+export default connect(mapStateToProps, mapDispatchToProps)(Layout)

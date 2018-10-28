@@ -1,16 +1,81 @@
-export default {
-  HOME: 'Inicio',
-  BATTLES: 'Conciertos',
-  BATTLE: 'Concierto',
-  PLAY_BATTLE: 'Dar concierto',
-  INVESTMENTS: 'Inversiones',
-  BUY_INVESTMENT_ITEM: 'Invertir',
-  SHOP: 'Tienda',
-  BUY_SHOP_ITEM: 'Item de Tienda',
-  BANK: 'Bancos',
-  MANAGER_TIP: 'Manager',
-  SIGN_UP: 'Creá tu rapero',
-  SIGN_IN: 'Ingresá a la experiencia',
-  APP: 'App',
-  AUTH: 'Auth',
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+import { AsyncStorage, View } from 'react-native'
+import { Spinner } from '@components'
+
+import { createRootNavigator } from '@navigation'
+
+import UsersService from '@services/Users'
+import { saveUser } from '@store/user/actions'
+
+import screens from '@screens/list'
+import AppScreen from '@screens/app'
+import AuthScreen from '@screens/auth'
+
+class Skeleton extends React.PureComponent {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isFetching: true,
+      isSignedIn: false,
+    }
+  }
+
+  async componentDidMount() {
+    const { onSaveUser } = this.props
+
+    const userEmail = await AsyncStorage.getItem('email')
+    const isSignedIn = userEmail !== null
+
+    if (isSignedIn) {
+      const user = await UsersService.get(userEmail)
+
+      onSaveUser(user)
+    }
+
+    return this.setState({
+      isFetching: false,
+      isSignedIn,
+    })
+  }
+
+  render() {
+    const { isFetching, isSignedIn } = this.state
+
+    if (isFetching) {
+      return (
+        <View style={{ flex: 1 }}>
+          <Spinner />
+        </View>
+      )
+    }
+
+    const Layout = createRootNavigator({
+      auth: {
+        id: screens.AUTH,
+        Screen: AuthScreen,
+      },
+      app: {
+        id: screens.APP,
+        Screen: AppScreen,
+      },
+    })(isSignedIn)
+
+    return (
+      <Layout />
+    )
+  }
 }
+
+Skeleton.propTypes = {
+  onSaveUser: PropTypes.func.isRequired,
+}
+
+const mapDispatchToProps = {
+  onSaveUser: saveUser,
+}
+
+export default connect(null, mapDispatchToProps)(Skeleton)

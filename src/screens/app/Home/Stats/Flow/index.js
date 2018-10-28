@@ -17,7 +17,7 @@ class StatsFlow extends React.PureComponent {
     return (
       <View style={styles.container}>
         <Title color={color}>Flow</Title>
-        <ProgressBar value={value} />
+        <Title color={color}>{value.toString()}</Title>
       </View>
     )
   }

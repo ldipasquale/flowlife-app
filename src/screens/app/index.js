@@ -1,3 +1,7 @@
+import React from 'react'
+
+import { App } from '@components'
+
 import { createDrawerNavigator, createModalScreen } from '@navigation'
 
 import { Sidebar } from '@components'

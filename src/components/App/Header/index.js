@@ -8,12 +8,19 @@ import { withNavigation } from '@navigation'
 
 import assets from '@assets'
 
+import screens from '@screens/list'
+
 import styles from './styles'
+
+const Icons = {
+  MENU: 'menu',
+  BACK: 'back',
+}
 
 class Header extends React.PureComponent {
   static leftIconActions = {
-    menu: navigation => navigation.openDrawer,
-    back: navigation => () => navigation.goBack(null),
+    [Icons.MENU]: navigation => navigation.openDrawer,
+    [Icons.BACK]: navigation => () => navigation.goBack(null),
   }
 
   static onPressLeftIcon(leftIcon) {
@@ -21,7 +28,9 @@ class Header extends React.PureComponent {
   }
 
   render() {
-    const { navigation, avatarUrl, leftIcon } = this.props
+    const { navigation, avatarUrl } = this.props
+
+    const leftIcon = navigation.state.routeName === screens.HOME ? Icons.MENU : Icons.BACK
 
     return (
       <View style={styles.container}>
@@ -52,12 +61,10 @@ class Header extends React.PureComponent {
 Header.propTypes = {
   navigation: PropTypes.object.isRequired,
   avatarUrl: PropTypes.string,
-  leftIcon: PropTypes.oneOf(['menu', 'back']),
 }
 
 Header.defaultProps = {
   avatarUrl: null,
-  leftIcon: 'menu',
 }
 
 export default withNavigation(Header)

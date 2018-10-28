@@ -1,95 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import { View } from 'react-native'
-import { Modal, Button, StoreItem, OptionsSelector } from '@components'
+import InvestmentsService from '@services/Investments'
+import { makeAction } from '@store/actions'
 
-import assets from '@assets'
-import { colors } from '@stylesheets'
+import { Toast } from '@navigation'
 
-import screens from '@screens'
+import Layout from './Layout'
 
-import styles from './styles'
+const mapStateToProps = state => ({
+  money: state.user.wallet.cash,
+  creditCardBalance: state.user.credit_card.next_closure_balance,
+})
 
-class BuyInvestmentItem extends React.PureComponent {
-  static screenOptions = {
-    id: screens.BUY_INVESTMENT_ITEM,
-  }
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onBuyItem: async ({ item, paymentMethod }) => {
+    const { navigation } = ownProps
 
-  constructor(props) {
-    super(props)
+    try {
+      const response = await InvestmentsService.invest({
+        type: item.name,
+        paymentMethod,
+      })
 
-    this.state = {}
+      dispatch(makeAction({
+        navigation,
+        response,
+        showManagerTip: true,
+      }))
+    } catch (error) {
+      Toast.show('Oops. Ocurrió un error.')
+    }
+  },
+})
 
-    this.handleTypeChange = this.handleTypeChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleTypeChange(typeId) {
-    return this.setState({
-      selectedTypeId: typeId,
-    })
-  }
-
-  handleSubmit() {
-    const { selectedTypeId } = this.state
-    const { navigation } = this.props
-
-    const { item } = navigation.state.params
-
-    console.log(selectedTypeId)
-    console.log(item)
-  }
-
-  render() {
-    const { navigation } = this.props
-
-    const { item } = navigation.state.params
-
-    return (
-      <Modal
-        renderContent={({ handleClose }) => (
-          <React.Fragment>
-            <StoreItem
-              size="big"
-              imageSource={assets.water}
-              title={item.nice_name}
-              price={item.money_cost}
-            />
-
-            <View style={styles.typeSelectorContainer}>
-              <OptionsSelector
-                options={[{
-                  id: 'cash',
-                  name: 'Efectivo',
-                  subtitle: '$18.000',
-                }, {
-                  id: 'credit',
-                  name: 'Tarjeta',
-                  subtitle: '-$9.400',
-                }]}
-                onChange={this.handleTypeChange}
-              />
-            </View>
-
-            <Button
-              color={colors.GREEN}
-              onPress={() => {
-                this.handleSubmit()
-                handleClose()
-              }}
-            >
-              Comprar ahora
-            </Button>
-          </React.Fragment>
-        )}
-      />
-    )
-  }
-}
-
-BuyInvestmentItem.propTypes = {
-  navigation: PropTypes.object.isRequired,
-}
-
-export default BuyInvestmentItem
+export default connect(mapStateToProps, mapDispatchToProps)(Layout)

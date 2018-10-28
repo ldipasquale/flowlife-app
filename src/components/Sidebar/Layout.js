@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { AsyncStorage, TouchableOpacity, ScrollView, View, Text, Image } from 'react-native'
 import { DrawerItems, SafeAreaView, withNavigation } from 'react-navigation'
 
 import assets from '@assets'
-import screens from '@screens'
+import screens from '@screens/list'
 
 import styles from './styles'
 
@@ -24,16 +25,18 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    const { userName, avatarUrl } = this.props
+
     return (
       <ScrollView>
         <View style={styles.header}>
           <Image
-            source={{ uri: 'https://banner2.kisspng.com/20180616/gks/kisspng-roblox-avatar-rapper-clip-art-cadea-carbonada-5b255cb41c2623.2620842815291752201153.jpg' }}
+            source={{ uri: avatarUrl }}
             style={styles.avatarIcon}
           />
 
           <View style={styles.userNameContainer}>
-            <Text style={styles.userName}>Ray Jones</Text>
+            <Text style={styles.userName}>{userName}</Text>
 
             <TouchableOpacity onPress={this.handleSignOut}>
               <Image style={styles.logOut} source={assets.logout} />
@@ -55,6 +58,11 @@ class Sidebar extends React.Component {
       </ScrollView>
     )
   }
+}
+
+Sidebar.propTypes = {
+  userName: PropTypes.string.isRequired,
+  avatarUrl: PropTypes.string.isRequired,
 }
 
 export default withNavigation(Sidebar)
