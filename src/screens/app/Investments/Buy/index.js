@@ -9,17 +9,15 @@ import Layout from './Layout'
 
 const mapStateToProps = state => ({
   money: state.user.wallet.cash,
-  creditCardBalance: state.user.credit_card.next_closure_balance,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onBuyItem: async ({ item, paymentMethod }) => {
+  onBuyItem: async ({ item }) => {
     const { navigation } = ownProps
 
     try {
       const response = await InvestmentsService.invest({
         type: item.name,
-        paymentMethod,
       })
 
       dispatch(makeAction({

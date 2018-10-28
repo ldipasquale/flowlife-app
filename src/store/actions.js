@@ -1,11 +1,9 @@
+import screens from '@screens/list'
 import { saveUser } from './user/actions'
 import { saveManagerTips } from './managerTips/actions'
 
-import screens from '@screens/list'
 
-import { Toast } from '@navigation'
-
-const makeAction = ({ navigation, response, showManagerTip = false }) => dispatch => {
+const makeAction = ({ navigation, response, showManagerTip = false }) => (dispatch) => {
   let newManagerTips
 
   const { error, advice, rapper, result, updates } = response

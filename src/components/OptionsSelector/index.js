@@ -10,7 +10,13 @@ class OptionsSelector extends React.PureComponent {
   constructor(props) {
     super(props)
 
-    this.state = {}
+    const { defaultSelectedId } = props
+
+    this.state = {
+      ...defaultSelectedId && {
+        selectedId: defaultSelectedId,
+      },
+    }
 
     this.handleChange = this.handleChange.bind(this)
     this.renderOption = this.renderOption.bind(this)
@@ -76,11 +82,13 @@ class OptionsSelector extends React.PureComponent {
 }
 
 OptionsSelector.propTypes = {
+  defaultSelectedId: PropTypes.string,
   options: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
 }
 
 OptionsSelector.defaultProps = {
+  defaultSelectedId: null,
 }
 
 export default OptionsSelector

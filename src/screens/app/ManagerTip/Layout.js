@@ -57,7 +57,11 @@ class ManagerTip extends React.PureComponent {
 
 ManagerTip.propTypes = {
   tip: PropTypes.string,
-  onClose: PropTypes.func,
+  onClose: PropTypes.func.isRequired,
+}
+
+ManagerTip.defaultProps = {
+  tip: null,
 }
 
 export default ManagerTip

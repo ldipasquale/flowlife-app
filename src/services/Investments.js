@@ -4,13 +4,12 @@ import apiClient from './apiClient'
 
 export default {
   get: () => apiClient.get('investments'),
-  invest: async ({ type, paymentMethod }) => {
+  invest: async ({ type }) => {
     const userEmail = await AsyncStorage.getItem('email')
-    
+
     return apiClient.post('action')({
       action: 'make_investment',
       investment_type: type,
-      //payment_method: paymentMethod,
       email: userEmail,
     })
   },

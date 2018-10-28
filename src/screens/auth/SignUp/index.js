@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     } catch (error) {
       Toast.show('Oops. Ocurrió un error.')
     }
-  }
+  },
 })
 
 export default connect(null, mapDispatchToProps)(Layout)

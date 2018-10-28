@@ -71,7 +71,7 @@ class SignUp extends React.PureComponent {
 }
 
 SignUp.propTypes = {
-  navigation: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired, // eslint-disable-line react/no-unused-prop-types
   onSubmit: PropTypes.func.isRequired,
 }
 

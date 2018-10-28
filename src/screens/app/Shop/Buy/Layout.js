@@ -9,6 +9,8 @@ import assets from '@assets'
 import { colors } from '@stylesheets'
 import { formats } from '@constants'
 
+import { Toast } from '@navigation'
+
 import screens from '@screens/list'
 
 import styles from './styles'
@@ -25,6 +27,7 @@ class BuyShopItem extends React.PureComponent {
 
     this.handleTypeChange = this.handleTypeChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.validateForm = this.validateForm.bind(this)
   }
 
   handleTypeChange(id) {
@@ -43,6 +46,18 @@ class BuyShopItem extends React.PureComponent {
       item,
       paymentMethod: selectedPaymentMethod,
     })
+  }
+
+  validateForm() {
+    const { selectedPaymentMethod } = this.state
+
+    if (!selectedPaymentMethod) {
+      Toast.show('Debes seleccionar un método de pago')
+
+      return false
+    }
+
+    return true
   }
 
   render() {
@@ -81,8 +96,10 @@ class BuyShopItem extends React.PureComponent {
             <Button
               color={colors.GREEN}
               onPress={() => {
-                this.handleSubmit()
-                handleClose()
+                if (this.validateForm()) {
+                  this.handleSubmit()
+                  handleClose()
+                }
               }}
             >
               Comprar ahora

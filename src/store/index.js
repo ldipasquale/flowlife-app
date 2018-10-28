@@ -5,5 +5,5 @@ import tree from './tree'
 
 export default createStore(
   combineReducers(tree),
-  applyMiddleware(thunk)
+  applyMiddleware(thunk),
 )

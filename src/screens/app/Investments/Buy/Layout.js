@@ -23,30 +23,19 @@ class BuyInvestmentItem extends React.PureComponent {
 
     this.state = {}
 
-    this.handleTypeChange = this.handleTypeChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleTypeChange(id) {
-    return this.setState({
-      selectedPaymentMethod: id,
-    })
-  }
-
   async handleSubmit() {
-    const { selectedPaymentMethod } = this.state
     const { navigation, onBuyItem } = this.props
 
     const { item } = navigation.state.params
 
-    return onBuyItem({
-      item,
-      paymentMethod: selectedPaymentMethod,
-    })
+    return onBuyItem({ item })
   }
 
   render() {
-    const { navigation, money, creditCardBalance } = this.props
+    const { navigation, money } = this.props
 
     const { item } = navigation.state.params
 
@@ -63,16 +52,13 @@ class BuyInvestmentItem extends React.PureComponent {
 
             <View style={styles.typeSelectorContainer}>
               <OptionsSelector
+                defaultSelectedId="cash"
                 options={[{
                   id: 'cash',
                   name: 'Efectivo',
                   subtitle: numeral(money).format(formats.CURRENCY),
-                }, {
-                  id: 'credit',
-                  name: 'Tarjeta',
-                  subtitle: numeral(creditCardBalance * -1).format(formats.CURRENCY),
                 }]}
-                onChange={this.handleTypeChange}
+                onChange={() => null}
               />
             </View>
 
@@ -95,7 +81,6 @@ class BuyInvestmentItem extends React.PureComponent {
 BuyInvestmentItem.propTypes = {
   navigation: PropTypes.object.isRequired,
   money: PropTypes.number.isRequired,
-  creditCardBalance: PropTypes.number.isRequired,
   onBuyItem: PropTypes.func.isRequired,
 }
 

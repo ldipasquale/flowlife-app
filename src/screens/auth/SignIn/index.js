@@ -28,10 +28,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         Toast.show('No encontramos al usuario. Por favor, intenta de nuevo.')
       }
     } catch (error) {
-      console.log(error)
       Toast.show('Oops. Ocurrió un error.')
     }
-  }
+  },
 })
 
 export default connect(null, mapDispatchToProps)(Layout)
