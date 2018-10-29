@@ -10,8 +10,8 @@ class APIClient {
     this.getResponses = {}
   }
 
-  async get(path) {
-    if (this.getResponses[path]) {
+  async get(path, { disableCache = false } = {}) {
+    if (!disableCache && this.getResponses[path]) {
       return this.getResponses[path]
     }
 

@@ -1,25 +1,26 @@
 import { connect } from 'react-redux'
 
 import { Toast } from '@navigation'
+import { makeAction } from '@store/actions'
 
 import BattlesService from '@services/Battles'
 
 import Layout from './Layout'
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onWin: async () => {
+  onFinish: async (hasWin) => {
     const { navigation } = ownProps
+    const { arena } = navigation.state.params
 
     try {
       const response = await BattlesService.win({
-        arena: {
-          name: 'Charo',
-        },
+        win: hasWin,
+        arena,
       })
 
-      console.log(response)
+      navigation.goBack()
 
-      Toast.show('Bien!.')
+      dispatch(makeAction({ navigation, response }))
     } catch (error) {
       Toast.show('Oops. Ocurrió un error.')
     }

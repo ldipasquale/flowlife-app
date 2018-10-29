@@ -16,6 +16,9 @@ export default StyleSheet.create({
       width: 0,
     },
   },
+  disabledContainer: {
+    backgroundColor: colors.LIGHT_GRAY,
+  },
   title: {
     marginBottom: spacings.STANDARD,
   },

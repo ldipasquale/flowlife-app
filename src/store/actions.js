@@ -2,7 +2,7 @@ import screens from '@screens/list'
 import { saveUser } from './user/actions'
 import { saveManagerTips } from './managerTips/actions'
 
-const makeAction = ({ navigation, response, showManagerTip = false }) => (dispatch) => {
+const makeAction = ({ response, navigation, showManagerTip = true }) => (dispatch) => {
   let newManagerTips
 
   const { error, advice, rapper, result, updates } = response
@@ -21,7 +21,7 @@ const makeAction = ({ navigation, response, showManagerTip = false }) => (dispat
 
   dispatch(saveManagerTips(newManagerTips))
 
-  if (showManagerTip) {
+  if (error || showManagerTip) {
     setTimeout(() => navigation.navigate(screens.MANAGER_TIP), 1000)
   }
 }

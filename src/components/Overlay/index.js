@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Animated, Easing, TouchableOpacity, Image } from 'react-native'
+import { View, Animated, TouchableOpacity, Image } from 'react-native'
 
 import { withNavigation } from '@navigation'
 

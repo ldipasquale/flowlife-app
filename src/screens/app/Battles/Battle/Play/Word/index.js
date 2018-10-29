@@ -6,7 +6,7 @@ import { TouchableOpacity, View, Text } from 'react-native'
 import styles from './styles'
 
 class Word extends React.PureComponent {
-  constructor(props) { 
+  constructor(props) {
     super(props)
 
     this.handlePress = this.handlePress.bind(this)
@@ -49,7 +49,7 @@ class Word extends React.PureComponent {
 Word.propTypes = {
   children: PropTypes.string.isRequired,
   isHighlighted: PropTypes.bool,
-  onPress: PropTypes.func,
+  onPress: PropTypes.func.isRequired,
 }
 
 Word.defaultProps = {

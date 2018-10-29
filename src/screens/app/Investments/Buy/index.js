@@ -20,11 +20,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         type: item.name,
       })
 
-      dispatch(makeAction({
-        navigation,
-        response,
-        showManagerTip: true,
-      }))
+      dispatch(makeAction({ navigation, response }))
     } catch (error) {
       Toast.show('Oops. Ocurrió un error.')
     }

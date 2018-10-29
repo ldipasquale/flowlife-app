@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { View } from 'react-native'
-import { Title, ProgressBar } from '@components'
+import { Title } from '@components'
 
 import { colors } from '@stylesheets'
 
@@ -16,8 +16,7 @@ class StatsFlow extends React.PureComponent {
 
     return (
       <View style={styles.container}>
-        <Title color={color}>Flow</Title>
-        <Title color={color}>{value.toString()}</Title>
+        <Title color={color}>{`Flow: ${value.toString()}`}</Title>
       </View>
     )
   }

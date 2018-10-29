@@ -7,7 +7,7 @@ import screens from '@screens/list'
 import AllBattles from './AllBattles'
 import Battle from './Battle'
 
-export default createStackNavigator([Battle, AllBattles], {
+export default createStackNavigator([AllBattles, Battle], {
   screenOptions: {
     label: screens.BATTLES,
     icon: assets.battles,

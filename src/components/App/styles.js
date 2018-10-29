@@ -8,7 +8,7 @@ export default StyleSheet.create({
     padding: spacings.MEDIUM,
   },
   container: {
-    backgroundColor: colors.LIGHT_GRAY,
+    backgroundColor: colors.LIGHTEN_GRAY,
     borderRadius: 5,
     flex: 1,
   },

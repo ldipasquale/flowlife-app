@@ -37,11 +37,17 @@ class Card extends React.PureComponent {
   }
 
   render() {
-    const { style, onPress } = this.props
+    const { style, onPress, isDisabled } = this.props
 
-    if (onPress === null) {
+    if (onPress === null || isDisabled) {
       return (
-        <View style={[styles.container, style]}>
+        <View
+          style={[
+            styles.container,
+            style,
+            isDisabled && styles.disabledContainer,
+          ]}
+        >
           {this.renderContent()}
         </View>
       )
@@ -64,12 +70,14 @@ Card.propTypes = {
   onPress: PropTypes.func,
   style: PropTypes.number,
   children: PropTypes.node.isRequired,
+  isDisabled: PropTypes.bool,
 }
 
 Card.defaultProps = {
   title: null,
   onPress: null,
   style: null,
+  isDisabled: false,
 }
 
 export default Card
