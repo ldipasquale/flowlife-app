@@ -10,7 +10,7 @@ import styles from './styles'
 
 class StoreItem extends React.PureComponent {
   render() {
-    const { size, imageSource, tag, tagColor, title, price } = this.props
+    const { size, imageSource, tag, tagColor, title, price, flowPrice } = this.props
 
     return (
       <View style={styles.container}>
@@ -62,6 +62,19 @@ class StoreItem extends React.PureComponent {
             {numeral(price).format(formats.CURRENCY)}
           </Text>
         </View>
+
+        {flowPrice !== -1 && (
+          <View>
+            <Text
+              style={[
+                styles.flowPrice,
+                size === 'big' && styles.bigFlowPrice,
+              ]}
+            >
+              {`${flowPrice} flow`.toUpperCase()}
+            </Text>
+          </View>
+        )}
       </View>
     )
   }
@@ -74,6 +87,7 @@ StoreItem.propTypes = {
   tagColor: PropTypes.string,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  flowPrice: PropTypes.number,
 }
 
 StoreItem.defaultProps = {
@@ -81,6 +95,7 @@ StoreItem.defaultProps = {
   imageSource: -1,
   tag: null,
   tagColor: null,
+  flowPrice: -1,
 }
 
 export default StoreItem

@@ -52,8 +52,21 @@ export default StyleSheet.create({
     color: colors.GREEN,
     fontWeight: '600',
     textAlign: 'center',
+    marginTop: spacings.TINY,
   },
   bigPrice: {
     fontSize: fontSizes.STANDARD,
+  },
+  flowPrice: {
+    letterSpacing: others.LETTER_SPACING,
+    fontSize: fontSizes.XSMALL,
+    color: colors.ORANGE,
+    fontWeight: '600',
+    textAlign: 'center',
+    marginTop: spacings.TINY,
+  },
+  bigFlowPrice: {
+    marginTop: spacings.XSMALL,
+    fontSize: fontSizes.SMALL,
   },
 })

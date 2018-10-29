@@ -2,7 +2,6 @@ import screens from '@screens/list'
 import { saveUser } from './user/actions'
 import { saveManagerTips } from './managerTips/actions'
 
-
 const makeAction = ({ navigation, response, showManagerTip = false }) => (dispatch) => {
   let newManagerTips
 

@@ -13,10 +13,7 @@ class Bullet extends React.PureComponent {
       <View style={styles.container}>
         <View style={styles.bullet} />
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.content}>
-:
-          {children}
-        </Text>
+        <Text style={styles.content}>{`: ${children}`}</Text>
       </View>
     )
   }

@@ -13,10 +13,22 @@ import screens from '@screens/list'
 
 import Play from './Play'
 
+const DEFAULT_ARENA = {
+  name: 'Bitflow',
+  capacity: 200,
+  cost: 30940,
+}
+
 class Battle extends React.PureComponent {
   static screenOptions = {
     label: screens.BATTLE,
     modals: [Play],
+  }
+
+  componentDidMount() {
+    const { navigation } = this.props
+
+    navigation.navigate(screens.PLAY_BATTLE, { arena: DEFAULT_ARENA })
   }
 
   render() {
@@ -24,11 +36,7 @@ class Battle extends React.PureComponent {
 
     // const { arena } = navigation.state.params
 
-    const arena = {
-      name: 'Bitflow',
-      capacity: 200,
-      cost: 30940,
-    }
+    const arena = DEFAULT_ARENA
 
     return (
       <App leftIcon="back">
@@ -42,11 +50,7 @@ class Battle extends React.PureComponent {
 
         <Card title="Condiciones">
           <Bullet title="Entrada">{numeral(arena.cost).format(formats.CURRENCY)}</Bullet>
-          <Bullet title="Premio">
-            {arena.capacity}
-            {' '}
-fans nuevos
-          </Bullet>
+          <Bullet title="Premio">{`${arena.capacity} fans nuevos`}</Bullet>
           <Bullet title="Tipo de Concierto">Punchline Mode</Bullet>
         </Card>
 

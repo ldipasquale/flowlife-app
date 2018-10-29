@@ -1,36 +1,29 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-import { Text } from 'react-native'
-import { Modal, Button } from '@components'
+import { Toast } from '@navigation'
 
-import { colors } from '@stylesheets'
+import BattlesService from '@services/Battles'
 
-import screens from '@screens/list'
+import Layout from './Layout'
 
-class PlayBattle extends React.Component {
-  static screenOptions = {
-    id: screens.PLAY_BATTLE,
-  }
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onWin: async () => {
+    const { navigation } = ownProps
 
-  render() {
-    return (
-      <Modal
-        renderContent={({ handleClose }) => (
-          <React.Fragment>
-            <Text>Dialog</Text>
+    try {
+      const response = await BattlesService.win({
+        arena: {
+          name: 'Charo',
+        },
+      })
 
-            <Button
-              color={colors.DARK_GREEN}
-              onPress={handleClose}
-            >
-              Sacar Crédito
-            </Button>
-          </React.Fragment>
-        )}
-      />
-    )
-  }
-}
+      console.log(response)
 
-export default PlayBattle
+      Toast.show('Bien!.')
+    } catch (error) {
+      Toast.show('Oops. Ocurrió un error.')
+    }
+  },
+})
+
+export default connect(null, mapDispatchToProps)(Layout)

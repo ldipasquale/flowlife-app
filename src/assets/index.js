@@ -2,6 +2,7 @@ const logout = require('./icons/logout.png')
 const water = require('./icons/water.png')
 const back = require('./icons/back.png')
 const battles = require('./icons/battles.png')
+const greenCross = require('./icons/green_cross.png')
 const cross = require('./icons/cross.png')
 const investments = require('./icons/investments.png')
 const manager = require('./icons/manager.png')
@@ -13,6 +14,7 @@ export default {
   water,
   back,
   battles,
+  greenCross,
   cross,
   investments,
   manager,

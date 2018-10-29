@@ -48,6 +48,7 @@ class BuyInvestmentItem extends React.PureComponent {
               imageSource={assets.water}
               title={item.nice_name}
               price={item.money_cost}
+              flowPrice={item.flow_cost}
             />
 
             <View style={styles.typeSelectorContainer}>

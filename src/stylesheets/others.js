@@ -2,4 +2,5 @@ export default {
   BORDER_RADIUS: 3,
   BIG_BORDER_RADIUS: 6,
   LETTER_SPACING: 0.8,
+  BIG_LETTER_SPACING: 1.4,
 }
