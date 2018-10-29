@@ -5,6 +5,6 @@ export default StyleSheet.create({
   typeSelectorContainer: {
     marginTop: spacings.LARGER,
     marginBottom: spacings.LARGE,
-    paddingHorizontal: spacings.STANDARD,
+    paddingHorizontal: spacings.XXHUGE * 1.5,
   },
 })

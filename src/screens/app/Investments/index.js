@@ -56,6 +56,7 @@ class Investments extends React.PureComponent {
             idKey="name"
             items={investments}
             renderItem={this.renderItem}
+            columns={2}
           />
         )}
       </App>
