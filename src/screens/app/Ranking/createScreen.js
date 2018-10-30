@@ -2,12 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { View, FlatList, Text } from 'react-native'
-import { App, Card, Spinner } from '@components'
-
-import assets from '@assets'
-import { colors } from '@stylesheets'
-
-import screens from '@screens/list'
+import { Card, Spinner } from '@components'
 
 import styles from './styles'
 
@@ -21,15 +16,7 @@ export default ({ label }) => {
       return user
     }
 
-    constructor(props) {
-      super(props)
-
-      this.renderUser = this.renderUser.bind(this)
-    }
-
-    renderUser({ item, index }) {
-      const { navigation } = this.props
-
+    static renderUser({ item, index }) {
       const rankingNumber = index + 1
 
       return (
@@ -66,7 +53,7 @@ export default ({ label }) => {
           ) : (
             <FlatList
               data={items}
-              renderItem={this.renderUser}
+              renderItem={RankingTab.renderUser}
               keyExtractor={RankingTab.getKey}
             />
           )}

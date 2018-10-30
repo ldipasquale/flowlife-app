@@ -16,7 +16,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
       dispatch(makeAction({ navigation, response }))
     } catch (error) {
-      console.log(error)
       Toast.show('Oops. Ocurrió un error.')
     }
   },

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-import { spacings, colors, others } from '@stylesheets'
+import { spacings } from '@stylesheets'
 
 export default StyleSheet.create({
   balanceContainer: {

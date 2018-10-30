@@ -4,10 +4,9 @@ import numeral from 'numeral'
 
 import { withNavigation } from '@navigation'
 
-import { View, Text, TouchableOpacity, Image } from 'react-native'
-import { Card, Value, Button, Bullet } from '@components'
+import { View } from 'react-native'
+import { Value, Card, Button, Bullet } from '@components'
 
-import assets from '@assets'
 import { colors } from '@stylesheets'
 import { formats } from '@constants'
 
@@ -50,7 +49,7 @@ class BankLoans extends React.PureComponent {
   }
 
   render() {
-    const { items } = this.props
+    const { navigation, items } = this.props
 
     const remainingDebt = items.reduce((amountAccumulator, item) => amountAccumulator + item.remaining_debt, 0)
 
@@ -78,6 +77,7 @@ class BankLoans extends React.PureComponent {
 }
 
 BankLoans.propTypes = {
+  navigation: PropTypes.object.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape({
     amount: PropTypes.number.isRequired,
     interest_rate: PropTypes.number.isRequired,

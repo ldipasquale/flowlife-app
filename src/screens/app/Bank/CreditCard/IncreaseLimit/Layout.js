@@ -12,17 +12,17 @@ import { formats } from '@constants'
 import screens from '@screens/list'
 import styles from '@screens/app/Bank/modalStyles'
 
-class PayLoan extends React.PureComponent {
+class IncreaseCreditCardLimit extends React.PureComponent {
   static screenOptions = {
-    id: screens.PAY_LOAN,
+    id: screens.INCREASE_CREDIT_CARD_LIMIT,
   }
 
   static getDerivedStateFromProps(props) {
     const { navigation } = props
-    const { item } = navigation.state.params
+    const { limit } = navigation.state.params
 
     return {
-      amount: Math.ceil(item.remaining_debt),
+      amount: limit,
     }
   }
 
@@ -42,22 +42,18 @@ class PayLoan extends React.PureComponent {
   }
 
   async handleSubmit() {
-    const { navigation, onPay } = this.props
+    const { onIncrease } = this.props
 
-    const { item } = navigation.state.params
     const { amount } = this.state
 
-    return onPay({
-      id: item.id,
-      amount: parseInt(amount, 10),
-    })
+    return onIncrease({ amount: parseInt(amount, 10) })
   }
 
   render() {
     const { navigation } = this.props
 
     const { amount } = this.state
-    const { item } = navigation.state.params
+    const { maxLimit } = navigation.state.params
 
     return (
       <Modal
@@ -66,7 +62,7 @@ class PayLoan extends React.PureComponent {
             <StoreItem
               size="big"
               imageSource={assets.wallet}
-              title="Préstamo"
+              title="Límite de tarjeta de crédito"
             />
 
             <View style={styles.inputsContainer}>
@@ -79,7 +75,7 @@ class PayLoan extends React.PureComponent {
               />
 
               <Text style={styles.limit}>
-                {`/ ${numeral(item.remaining_debt).format(formats.CURRENCY)}`}
+                {`/ ${numeral(maxLimit).format(formats.CURRENCY)}`}
               </Text>
             </View>
 
@@ -99,9 +95,9 @@ class PayLoan extends React.PureComponent {
   }
 }
 
-PayLoan.propTypes = {
+IncreaseCreditCardLimit.propTypes = {
   navigation: PropTypes.object.isRequired,
-  onPay: PropTypes.func.isRequired,
+  onIncrease: PropTypes.func.isRequired,
 }
 
-export default PayLoan
+export default IncreaseCreditCardLimit

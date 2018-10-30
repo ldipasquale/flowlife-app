@@ -8,11 +8,11 @@ import { Toast } from '@navigation'
 import Layout from './Layout'
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onRequest: async ({ amount, duration, interestRate }) => {
+  onIncrease: async ({ amount }) => {
     const { navigation } = ownProps
 
     try {
-      const response = await BankService.requestFixedTermDeposit({ amount, duration, interestRate })
+      const response = await BankService.increaseCreditCardLimit({ amount })
 
       dispatch(makeAction({ navigation, response }))
     } catch (error) {

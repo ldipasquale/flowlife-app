@@ -56,8 +56,6 @@ class RequestLoan extends React.PureComponent {
   }
 
   render() {
-    const { navigation} = this.props
-
     const { amount, duration } = this.state
 
     return (
@@ -90,7 +88,7 @@ class RequestLoan extends React.PureComponent {
               />
 
               <Text style={styles.description}>
-                {`semanas`}
+                {'semanas'}
               </Text>
             </View>
 
@@ -111,7 +109,6 @@ class RequestLoan extends React.PureComponent {
 }
 
 RequestLoan.propTypes = {
-  navigation: PropTypes.object.isRequired,
   onRequest: PropTypes.func.isRequired,
 }
 

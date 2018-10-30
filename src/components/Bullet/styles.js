@@ -26,5 +26,5 @@ export default StyleSheet.create({
   rightNodeContainer: {
     position: 'absolute',
     right: 0,
-  }
+  },
 })

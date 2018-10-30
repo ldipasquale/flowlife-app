@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import { FlatList } from 'react-native'
 import { App, Bullet, Spinner } from '@components'
 
-import { withNavigation } from '@navigation'
-
 import assets from '@assets'
 
 import screens from '@screens/list'
@@ -24,15 +22,7 @@ class Managers extends React.PureComponent {
 
   static entities = ['managerTips']
 
-  constructor(props) {
-    super(props)
-
-    this.renderManagerTip = this.renderManagerTip.bind(this)
-  }
-
-  renderManagerTip({ item }) {
-    const { navigation } = this.props
-
+  static renderManagerTip({ item }) {
     return (
       <Bullet style={styles.item} withColon={false}>
         {item}
@@ -50,7 +40,7 @@ class Managers extends React.PureComponent {
         ) : (
           <FlatList
             data={managerTips}
-            renderItem={this.renderManagerTip}
+            renderItem={Managers.renderManagerTip}
             keyExtractor={Managers.getKey}
           />
         )}
@@ -60,7 +50,6 @@ class Managers extends React.PureComponent {
 }
 
 Managers.propTypes = {
-  navigation: PropTypes.object.isRequired,
   managerTips: PropTypes.array,
   isFetching: PropTypes.bool,
 }
@@ -70,4 +59,4 @@ Managers.defaultProps = {
   isFetching: true,
 }
 
-export default withNavigation(Managers)
+export default Managers

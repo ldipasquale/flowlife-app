@@ -42,7 +42,7 @@ class PayCreditCard extends React.PureComponent {
   }
 
   async handleSubmit() {
-    const { navigation, onPay } = this.props
+    const { onPay } = this.props
 
     const { amount } = this.state
 
@@ -50,7 +50,7 @@ class PayCreditCard extends React.PureComponent {
   }
 
   render() {
-    const { navigation} = this.props
+    const { navigation } = this.props
 
     const { amount } = this.state
     const { balance } = navigation.state.params

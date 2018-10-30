@@ -7,6 +7,7 @@ import screens from '@screens/list'
 
 import CreditCard from './CreditCard'
 import PayCreditCard from './CreditCard/Pay'
+import IncreaseCreditCardLimit from './CreditCard/IncreaseLimit'
 
 import Loans from './Loans'
 import PayLoan from './Loans/Pay'
@@ -19,7 +20,7 @@ class Bank extends React.PureComponent {
   static screenOptions = {
     label: screens.BANK,
     icon: assets.bank,
-    modals: [PayCreditCard, PayLoan, RequestLoan, RequestFixedTermDeposit],
+    modals: [PayCreditCard, IncreaseCreditCardLimit, PayLoan, RequestLoan, RequestFixedTermDeposit],
   }
 
   render() {
@@ -29,7 +30,8 @@ class Bank extends React.PureComponent {
       <App>
         <CreditCard
           balance={user.credit_card.next_closure_balance}
-          limit={user.credit_card.limit}
+          limit={user.credit_card.available_limit}
+          maxLimit={user.credit_card.limit}
         />
 
         <Loans items={user.loans} />

@@ -11,5 +11,5 @@ import ManagerTip from './ManagerTip'
 
 export default createModalScreen(
   createDrawerNavigator([Home, Battles, Shop, Investments, Bank, Managers, Ranking]),
-  [ManagerTip]
+  [ManagerTip],
 )

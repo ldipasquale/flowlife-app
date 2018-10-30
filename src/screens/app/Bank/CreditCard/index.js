@@ -17,7 +17,7 @@ import styles from './styles'
 
 class BankCreditCard extends React.PureComponent {
   render() {
-    const { navigation, balance, limit } = this.props
+    const { navigation, balance, limit, maxLimit } = this.props
 
     return (
       <Card title="Tarjeta de Crédito">
@@ -30,7 +30,10 @@ class BankCreditCard extends React.PureComponent {
             {`/ ${numeral(limit).format(formats.CURRENCY)}`}
           </Text>
 
-          <TouchableOpacity style={styles.plusLimitContainer}>
+          <TouchableOpacity
+            style={styles.plusLimitContainer}
+            onPress={() => navigation.navigate(screens.INCREASE_CREDIT_CARD_LIMIT, { limit, maxLimit })}
+          >
             <Image source={assets.orangePlus} />
           </TouchableOpacity>
         </View>
@@ -50,6 +53,7 @@ BankCreditCard.propTypes = {
   navigation: PropTypes.object.isRequired,
   balance: PropTypes.number.isRequired,
   limit: PropTypes.number.isRequired,
+  maxLimit: PropTypes.number.isRequired,
 }
 
 export default withNavigation(BankCreditCard)

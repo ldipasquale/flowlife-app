@@ -12,6 +12,15 @@ export default {
       email: userEmail,
     })
   },
+  increaseCreditCardLimit: async ({ amount }) => {
+    const userEmail = await AsyncStorage.getItem('email')
+
+    return apiClient.post('action')({
+      action: 'request_new_credit_card_limit',
+      amount,
+      email: userEmail,
+    })
+  },
   payLoan: async ({ id, amount }) => {
     const userEmail = await AsyncStorage.getItem('email')
 

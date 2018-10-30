@@ -23,7 +23,7 @@ class Bullet extends React.PureComponent {
   }
 
   render() {
-    const { style, title, children, rightNode } = this.props
+    const { style, title, rightNode } = this.props
 
     return (
       <View
