@@ -86,7 +86,7 @@ class IncreaseCreditCardLimit extends React.PureComponent {
                 handleClose()
               }}
             >
-              Pagar ahora
+              Incrementar límite ahora
             </Button>
           </React.Fragment>
         )}
