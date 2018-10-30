@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { FlatList } from 'react-native'
 import { App, Card, Arena, Spinner } from '@components'
 
 import { withNavigation } from '@navigation'
@@ -14,25 +15,28 @@ class AllBattles extends React.PureComponent {
 
   static entities = ['arenas']
 
+  static getKey(arena) {
+    return arena.name
+  }
+
   constructor(props) {
     super(props)
 
     this.renderArena = this.renderArena.bind(this)
   }
 
-  renderArena(arena) {
+  renderArena({ item }) {
     const { navigation, money } = this.props
 
     return (
       <Card
-        key={arena.name}
-        onPress={() => navigation.navigate(screens.BATTLE, { arena })}
-        isDisabled={money < arena.cost}
+        onPress={() => navigation.navigate(screens.BATTLE, { arena: item })}
+        isDisabled={money < item.cost}
       >
         <Arena
-          name={arena.name}
-          capacity={arena.capacity}
-          cost={arena.cost}
+          name={item.name}
+          capacity={item.capacity}
+          cost={item.cost}
         />
       </Card>
     )
@@ -43,8 +47,14 @@ class AllBattles extends React.PureComponent {
 
     return (
       <App>
-        {!isFetching ? arenas.map(this.renderArena) : (
+        {isFetching ? (
           <Spinner />
+        ) : (
+          <FlatList
+            data={arenas}
+            renderItem={this.renderArena}
+            keyExtractor={AllBattles.getKey}
+          />
         )}
       </App>
     )

@@ -7,20 +7,34 @@ import styles from './styles'
 
 class Button extends React.PureComponent {
   render() {
-    const { onPress, color, children } = this.props
+    const { onPress, color, children, size } = this.props
 
     return (
       <TouchableOpacity
         style={[
           styles.container,
-          color !== null && {
-            backgroundColor: color,
-          },
+          ...size === 'standard' && [
+            styles.standardContainer,
+            color !== null && { backgroundColor: color },
+          ],
+          ...size === 'small' && [
+            styles.smallContainer,
+            color !== null && { borderColor: color },
+          ],
         ]}
         onPress={onPress}
         activeOpacity={0.8}
       >
-        <Text style={styles.text}>
+        <Text
+          style={[
+            styles.text,
+            size === 'standard' && styles.standardText,
+            ...size === 'small' && [
+              styles.smallText,
+              { color },
+            ],
+          ]}
+        >
           {children.toUpperCase()}
         </Text>
       </TouchableOpacity>
@@ -30,11 +44,13 @@ class Button extends React.PureComponent {
 
 Button.propTypes = {
   children: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(['standard', 'small']),
   onPress: PropTypes.func,
   color: PropTypes.string,
 }
 
 Button.defaultProps = {
+  size: 'standard',
   onPress: null,
   color: null,
 }

@@ -10,7 +10,7 @@ import styles from './styles'
 
 class App extends React.PureComponent {
   render() {
-    const { children, disableHeader, disableManager, avatarUrl } = this.props
+    const { children, disableHeader, disableManager, avatarUrl, withPadding } = this.props
 
     return (
       <View style={styles.background}>
@@ -24,7 +24,10 @@ class App extends React.PureComponent {
           )}
 
           <ScrollView
-            style={styles.content}
+            style={[
+              styles.content,
+              withPadding && styles.contentWithPadding,
+            ]}
             contentContainerStyle={styles.contentContainer}
           >
             {children}
@@ -40,12 +43,14 @@ App.propTypes = {
   disableHeader: PropTypes.bool,
   disableManager: PropTypes.bool,
   avatarUrl: PropTypes.string,
+  withPadding: PropTypes.bool,
 }
 
 App.defaultProps = {
   disableHeader: false,
   disableManager: false,
   avatarUrl: null,
+  withPadding: true,
 }
 
 export default App

@@ -5,9 +5,9 @@ export default StyleSheet.create({
   container: {
     backgroundColor: colors.WHITE,
     flexDirection: 'row',
-    padding: spacings.LARGE,
-    paddingTop: spacings.MEDIUM,
-    paddingBottom: spacings.MEDIUM,
+    paddingLeft: spacings.MEDIUM,
+    paddingRight: spacings.LARGE,
+    paddingVertical: spacings.STANDARD,
     justifyContent: 'space-between',
     alignItems: 'center',
     elevation: 5,
@@ -24,5 +24,9 @@ export default StyleSheet.create({
   },
   leftIcon: {
     marginRight: spacings.MEDIUM,
+    width: spacings.HUGE,
+    height: spacings.HUGE,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 })

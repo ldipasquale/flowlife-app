@@ -52,16 +52,18 @@ class StoreItem extends React.PureComponent {
           </Text>
         </View>
 
-        <View>
-          <Text
-            style={[
-              styles.price,
-              size === 'big' && styles.bigPrice,
-            ]}
-          >
-            {numeral(price).format(formats.CURRENCY)}
-          </Text>
-        </View>
+        {price !== -1 && (
+          <View>
+            <Text
+              style={[
+                styles.price,
+                size === 'big' && styles.bigPrice,
+              ]}
+            >
+              {numeral(price).format(formats.CURRENCY)}
+            </Text>
+          </View>
+        )}
 
         {flowPrice !== -1 && (
           <View>
@@ -86,7 +88,7 @@ StoreItem.propTypes = {
   tag: PropTypes.string,
   tagColor: PropTypes.string,
   title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.number,
   flowPrice: PropTypes.number,
 }
 
@@ -95,6 +97,7 @@ StoreItem.defaultProps = {
   imageSource: -1,
   tag: null,
   tagColor: null,
+  price: -1,
   flowPrice: -1,
 }
 

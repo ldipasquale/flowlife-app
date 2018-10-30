@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { AsyncStorage, TouchableOpacity, ScrollView, View, Text, Image } from 'react-native'
 import { DrawerItems, SafeAreaView, withNavigation } from 'react-navigation'
 
+import { colors } from '@stylesheets'
+
 import assets from '@assets'
 import screens from '@screens/list'
 
@@ -52,6 +54,7 @@ class Sidebar extends React.Component {
             itemStyle={styles.item}
             iconContainerStyle={styles.itemIconContainer}
             labelStyle={styles.itemLabel}
+            activeBackgroundColor={colors.LIGHTEN_GRAY}
             {...this.props}
           />
         </SafeAreaView>

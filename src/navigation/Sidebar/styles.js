@@ -29,6 +29,8 @@ export default StyleSheet.create({
   item: {
     paddingHorizontal: spacings.LARGER,
     paddingVertical: 0,
+    borderBottomColor: colors.LIGHT_GRAY,
+    borderBottomWidth: 1,
   },
   itemIconContainer: {
     marginHorizontal: 0,

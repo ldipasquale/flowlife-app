@@ -3,9 +3,11 @@ import { Image } from 'react-native'
 
 import { createDrawerNavigator as rawCreateDrawerNavigator } from 'react-navigation'
 
+import Sidebar from './Sidebar'
+
 import processScreens from './processScreens'
 
-export default (Screens, Config) => rawCreateDrawerNavigator(processScreens(Screens, (Screen) => {
+export default (Screens, Config = {}) => rawCreateDrawerNavigator(processScreens(Screens, (Screen) => {
   Screen.navigationOptions = { // eslint-disable-line no-param-reassign
     drawerIcon: () => (
       <Image
@@ -20,4 +22,7 @@ export default (Screens, Config) => rawCreateDrawerNavigator(processScreens(Scre
   }
 
   return Screen
-}), Config)
+}), {
+  contentComponent: Sidebar,
+  ...Config,
+})

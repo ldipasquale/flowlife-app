@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { colors, spacings } from '@stylesheets'
+import { colors, spacings, others } from '@stylesheets'
 
 export default StyleSheet.create({
   background: {
@@ -14,9 +14,14 @@ export default StyleSheet.create({
   },
   contentContainer: {
     flexGrow: 1,
+    paddingBottom: spacings.LARGE,
   },
   content: {
     flex: 1,
+    top: others.BORDER_RADIUS * -1,
+  },
+  contentWithPadding: {
     padding: spacings.LARGE,
+    top: 0,
   },
 })

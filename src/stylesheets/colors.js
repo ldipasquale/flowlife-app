@@ -12,4 +12,8 @@ export default {
   BLUE: '#2371E0',
   ORANGE: '#FF5900',
   RED: '#FF1400',
+  BROWN: '#B47836',
+  GOLDEN: '#F3BA1D',
+  SILVER: '#c0c0c0',
+  BRONZE: '#cd7f32',
 }

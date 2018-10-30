@@ -8,8 +8,6 @@ import { Title, Value } from '@components'
 import { colors } from '@stylesheets'
 import { formats } from '@constants'
 
-import styles from './styles'
-
 const color = colors.GREEN
 
 class StatsMoney extends React.PureComponent {
@@ -17,7 +15,7 @@ class StatsMoney extends React.PureComponent {
     const { value } = this.props
 
     return (
-      <View style={styles.container}>
+      <View>
         <Title color={color}>Dinero</Title>
         <Value color={color}>{numeral(value).format(formats.CURRENCY)}</Value>
       </View>

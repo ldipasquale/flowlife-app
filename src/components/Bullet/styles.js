@@ -16,13 +16,15 @@ export default StyleSheet.create({
     backgroundColor: colors.GRAY,
     marginRight: spacings.SMALL,
   },
+  textContainer: {
+    fontSize: fontSizes.SMALL,
+    color: colors.DARK_GRAY,
+  },
   title: {
     fontWeight: '500',
-    fontSize: fontSizes.SMALL,
-    color: colors.DARK_GRAY,
   },
-  content: {
-    fontSize: fontSizes.SMALL,
-    color: colors.DARK_GRAY,
-  },
+  rightNodeContainer: {
+    position: 'absolute',
+    right: 0,
+  }
 })
