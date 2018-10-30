@@ -4,7 +4,7 @@ export default {
   RANKING: 'Ranking',
   FANS: 'Fans',
   FLOW: 'Flow',
-  MONEY: 'Money',
+  MONEY: 'Dinero',
   INCREASE_CREDIT_CARD_LIMIT: 'Incrementar límite de tarjeta de crédito',
   PAY_CREDIT_CARD: 'Pagar tarjeta de crédito',
   PAY_LOAN: 'Pagar préstamo',
