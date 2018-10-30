@@ -12,7 +12,7 @@ import { formats } from '@constants'
 import screens from '@screens/list'
 import styles from '@screens/app/Bank/modalStyles'
 
-const INTEREST_RATE = 0.03
+const INTEREST_RATE = 0.5
 
 class RequestLoan extends React.PureComponent {
   static screenOptions = {
@@ -56,7 +56,10 @@ class RequestLoan extends React.PureComponent {
   }
 
   render() {
+    const { navigation } = this.props
+
     const { amount, duration } = this.state
+    const { limit } = navigation.state.params
 
     return (
       <Modal
@@ -68,7 +71,7 @@ class RequestLoan extends React.PureComponent {
               title="Préstamo"
             />
 
-            <View style={styles.inputsContainer}>
+            <View style={[styles.inputsContainer, styles.firstInputsContainer]}>
               <Text style={[styles.moneyCurrency, styles.money]}>$</Text>
 
               <TextInput
@@ -77,6 +80,12 @@ class RequestLoan extends React.PureComponent {
                 onChange={this.handleChangeAmount}
               />
 
+              <Text style={styles.limit}>
+                {`/ ${numeral(limit).format(formats.CURRENCY)}`}
+              </Text>
+            </View>
+
+            <View style={styles.inputsContainer}>
               <Text style={styles.description}>
                 {`a ${numeral(INTEREST_RATE).format(formats.PERCENTAGE)} por`}
               </Text>
@@ -109,6 +118,7 @@ class RequestLoan extends React.PureComponent {
 }
 
 RequestLoan.propTypes = {
+  navigation: PropTypes.object.isRequired,
   onRequest: PropTypes.func.isRequired,
 }
 

@@ -49,7 +49,7 @@ class BankLoans extends React.PureComponent {
   }
 
   render() {
-    const { navigation, items } = this.props
+    const { navigation, items, maxLimit } = this.props
 
     const remainingDebt = items.reduce((amountAccumulator, item) => amountAccumulator + item.remaining_debt, 0)
 
@@ -67,7 +67,7 @@ class BankLoans extends React.PureComponent {
 
         <Button
           color={colors.ORANGE}
-          onPress={() => navigation.navigate(screens.REQUEST_LOAN)}
+          onPress={() => navigation.navigate(screens.REQUEST_LOAN, { limit: maxLimit })}
         >
           Pedir préstamo
         </Button>
@@ -82,6 +82,7 @@ BankLoans.propTypes = {
     amount: PropTypes.number.isRequired,
     interest_rate: PropTypes.number.isRequired,
   })).isRequired,
+  maxLimit: PropTypes.number.isRequired,
 }
 
 export default withNavigation(BankLoans)

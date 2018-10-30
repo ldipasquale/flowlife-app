@@ -12,7 +12,7 @@ import { formats } from '@constants'
 import screens from '@screens/list'
 import styles from '@screens/app/Bank/modalStyles'
 
-const INTEREST_RATE = 0.03
+const INTEREST_RATE = 0.4
 
 class RequestFixedTermDeposit extends React.PureComponent {
   static screenOptions = {

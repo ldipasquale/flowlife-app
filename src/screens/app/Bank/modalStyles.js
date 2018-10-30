@@ -9,6 +9,9 @@ export default StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'center',
   },
+  firstInputsContainer: {
+    marginBottom: 0,
+  },
   money: {
     color: colors.GREEN,
     fontSize: fontSizes.XLARGE,

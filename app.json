@@ -11,6 +11,7 @@
     "slug": "flow-life",
     "android": {
       "package": "com.itau.flowlife"
-    }
+    },
+    "description": ""
   }
 }

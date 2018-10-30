@@ -30,13 +30,18 @@ class Bank extends React.PureComponent {
       <App>
         <CreditCard
           balance={user.credit_card.next_closure_balance}
-          limit={user.credit_card.available_limit}
-          maxLimit={user.credit_card.limit}
+          limit={user.credit_card.limit}
+          maxLimit={user.credit_card_max_limit}
         />
 
-        <Loans items={user.loans} />
+        <Loans
+          items={user.loans}
+          maxLimit={user.loan_max_amount}
+        />
 
-        <FixedTermDeposits items={user.certificates_of_deposit} />
+        <FixedTermDeposits
+          items={user.certificates_of_deposit}
+        />
       </App>
     )
   }
