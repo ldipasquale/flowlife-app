@@ -5,7 +5,6 @@ import numeral from 'numeral'
 import { View } from 'react-native'
 import { Modal, Button, StoreItem, OptionsSelector } from '@components'
 
-import assets from '@assets'
 import { colors } from '@stylesheets'
 import { formats } from '@constants'
 
@@ -71,7 +70,7 @@ class BuyShopItem extends React.PureComponent {
           <React.Fragment>
             <StoreItem
               size="big"
-              imageSource={assets.water}
+              imageUrl={item.img}
               tag={`+${item.flow} flow`}
               tagColor={colors.ORANGE}
               title={item.name}

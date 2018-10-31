@@ -35,7 +35,7 @@ class Shop extends React.PureComponent {
         onPress={() => navigation.navigate(screens.BUY_SHOP_ITEM, { item })}
       >
         <StoreItem
-          imageSource={assets.water}
+          imageUrl={item.img}
           tag={`+${item.flow} flow`}
           tagColor={colors.ORANGE}
           title={item.name}

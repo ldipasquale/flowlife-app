@@ -5,7 +5,6 @@ import numeral from 'numeral'
 import { View } from 'react-native'
 import { Modal, Button, StoreItem, OptionsSelector } from '@components'
 
-import assets from '@assets'
 import { colors } from '@stylesheets'
 import { formats } from '@constants'
 
@@ -45,7 +44,7 @@ class BuyInvestmentItem extends React.PureComponent {
           <React.Fragment>
             <StoreItem
               size="big"
-              imageSource={assets.water}
+              imageUrl={item.img}
               title={item.nice_name}
               price={item.money_cost}
               flowPrice={item.flow_cost}

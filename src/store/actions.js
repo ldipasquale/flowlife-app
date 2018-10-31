@@ -15,13 +15,16 @@ const makeAction = ({ response, navigation, showManagerTip = true }) => (dispatc
     newManagerTips = [
       ...updates,
       ...advice,
-      result,
     ]
+
+    if (result !== null) {
+      newManagerTips.push(result)
+    }
   }
 
   dispatch(saveManagerTips(newManagerTips))
 
-  if (error || showManagerTip) {
+  if (navigation && (error || showManagerTip)) {
     setTimeout(() => navigation.navigate(screens.MANAGER_TIP), 1000)
   }
 }

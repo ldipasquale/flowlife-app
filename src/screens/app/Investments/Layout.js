@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { App, Card, ItemList, Spinner, StoreItem } from '@components'
 
 import { withNavigation } from '@navigation'
@@ -36,7 +37,7 @@ class Investments extends React.PureComponent {
         onPress={() => navigation.navigate(screens.BUY_INVESTMENT_ITEM, { item })}
       >
         <StoreItem
-          imageSource={assets.water}
+          imageUrl={item.img}
           title={item.nice_name}
           price={item.money_cost}
           flowPrice={item.flow_cost}

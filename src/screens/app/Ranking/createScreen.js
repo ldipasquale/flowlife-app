@@ -1,10 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import numeral from 'numeral'
 
 import { View, FlatList, Text } from 'react-native'
 import { Card, Spinner } from '@components'
 
+import screens from '@screens/list'
+
+import { formats } from '@constants'
+
 import styles from './styles'
+
+const screensNumberFormat = {
+  [screens.MONEY]: formats.CURRENCY,
+}
 
 export default ({ label }) => {
   class RankingTab extends React.PureComponent {
@@ -13,11 +22,21 @@ export default ({ label }) => {
     }
 
     static getKey(user) {
-      return user
+      return user.name
     }
 
-    static renderUser({ item, index }) {
+    constructor(props) {
+      super(props)
+
+      this.numeralFormat = screensNumberFormat[label]
+
+      this.renderUser = this.renderUser.bind(this)
+    }
+
+    renderUser({ item, index }) {
       const rankingNumber = index + 1
+
+      const processedValue = numeral(item.value).format(this.numeralFormat)
 
       return (
         <Card>
@@ -37,7 +56,7 @@ export default ({ label }) => {
               </View>
             )}
 
-            <Text style={styles.userName}>{item}</Text>
+            <Text style={styles.userName}>{`${item.name} (${processedValue})`}</Text>
           </View>
         </Card>
       )
@@ -53,7 +72,7 @@ export default ({ label }) => {
           ) : (
             <FlatList
               data={items}
-              renderItem={RankingTab.renderUser}
+              renderItem={this.renderUser}
               keyExtractor={RankingTab.getKey}
             />
           )}

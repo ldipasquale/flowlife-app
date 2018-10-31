@@ -24,7 +24,10 @@ export default StyleSheet.create({
   },
   image: {
     alignSelf: 'center',
-    marginBottom: spacings.STANDARD,
+    marginTop: spacings.STANDARD,
+    marginBottom: spacings.MEDIUM,
+    height: spacings.XXHUGE,
+    width: spacings.XXHUGE,
   },
   tag: {
     color: colors.WHITE,

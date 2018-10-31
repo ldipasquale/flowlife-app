@@ -10,9 +10,9 @@ import screens from '@screens/list'
 
 import styles from './styles'
 
-class Managers extends React.PureComponent {
+class Manager extends React.PureComponent {
   static screenOptions = {
-    label: screens.MANAGERS,
+    label: screens.MANAGER,
     icon: assets.squareManager,
   }
 
@@ -40,8 +40,8 @@ class Managers extends React.PureComponent {
         ) : (
           <FlatList
             data={managerTips}
-            renderItem={Managers.renderManagerTip}
-            keyExtractor={Managers.getKey}
+            renderItem={Manager.renderManagerTip}
+            keyExtractor={Manager.getKey}
           />
         )}
       </App>
@@ -49,14 +49,14 @@ class Managers extends React.PureComponent {
   }
 }
 
-Managers.propTypes = {
+Manager.propTypes = {
   managerTips: PropTypes.array,
   isFetching: PropTypes.bool,
 }
 
-Managers.defaultProps = {
+Manager.defaultProps = {
   managerTips: [],
   isFetching: true,
 }
 
-export default Managers
+export default Manager

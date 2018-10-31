@@ -8,7 +8,7 @@ import { Spinner } from '@components'
 import { createRootNavigator } from '@navigation'
 
 import UsersService from '@services/Users'
-import { saveUser } from '@store/user/actions'
+import { makeAction } from '@store/actions'
 
 import screens from '@screens/list'
 import AppScreen from '@screens/app'
@@ -31,9 +31,9 @@ class Skeleton extends React.PureComponent {
     const isSignedIn = userEmail !== null
 
     if (isSignedIn) {
-      const user = await UsersService.get(userEmail)
+      const response = await UsersService.get(userEmail)
 
-      onSaveUser(user)
+      onSaveUser(response)
     }
 
     return this.setState({
@@ -74,8 +74,10 @@ Skeleton.propTypes = {
   onSaveUser: PropTypes.func.isRequired,
 }
 
-const mapDispatchToProps = {
-  onSaveUser: saveUser,
-}
+const mapDispatchToProps = dispatch => ({
+  onSaveUser(response) {
+    dispatch(makeAction({ response }))
+  },
+})
 
 export default connect(null, mapDispatchToProps)(Skeleton)

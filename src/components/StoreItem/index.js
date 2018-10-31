@@ -10,7 +10,7 @@ import styles from './styles'
 
 class StoreItem extends React.PureComponent {
   render() {
-    const { size, imageSource, tag, tagColor, title, price, flowPrice } = this.props
+    const { size, imageSource, imageUrl, tag, tagColor, title, price, flowPrice } = this.props
 
     return (
       <View style={styles.container}>
@@ -34,12 +34,10 @@ class StoreItem extends React.PureComponent {
           </View>
         )}
 
-        {imageSource !== -1 && (
-          <Image
-            style={styles.image}
-            source={imageSource}
-          />
-        )}
+        <Image
+          style={styles.image}
+          source={imageUrl !== null ? { uri: imageUrl } : imageSource}
+        />
 
         <View>
           <Text
@@ -85,6 +83,7 @@ class StoreItem extends React.PureComponent {
 StoreItem.propTypes = {
   size: PropTypes.oneOf(['standard', 'big']),
   imageSource: PropTypes.number,
+  imageUrl: PropTypes.string,
   tag: PropTypes.string,
   tagColor: PropTypes.string,
   title: PropTypes.string.isRequired,
@@ -95,6 +94,7 @@ StoreItem.propTypes = {
 StoreItem.defaultProps = {
   size: 'standard',
   imageSource: -1,
+  imageUrl: null,
   tag: null,
   tagColor: null,
   price: -1,

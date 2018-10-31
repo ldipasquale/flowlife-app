@@ -17,7 +17,7 @@ export default {
   BUY_INVESTMENT_ITEM: 'Invertir',
   SHOP: 'Tienda',
   BUY_SHOP_ITEM: 'Item de Tienda',
-  MANAGERS: 'Manager',
+  MANAGER: 'Manager',
   MANAGER_TIP: 'Tip del Manager',
   SIGN_UP: 'Creá tu rapero',
   SIGN_IN: 'Ingresá a la experiencia',
