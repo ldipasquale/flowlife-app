@@ -6,5 +6,6 @@ export default {
   STANDARD: 15,
   LARGE: 17,
   XLARGE: 20,
+  XXLARGE: 24,
   HUGE: 32,
 }

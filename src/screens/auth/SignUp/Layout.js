@@ -8,7 +8,7 @@ import { withNavigation } from '@navigation'
 
 import screens from '@screens/list'
 
-import RapperBuilder from './RapperBuilder'
+import AvatarBuilder from './AvatarBuilder'
 
 class SignUp extends React.PureComponent {
   static screenOptions = {
@@ -21,6 +21,11 @@ class SignUp extends React.PureComponent {
     this.steps = [{
       button: 'Elegí la apariencia',
       fields: [{
+        id: 'fullName',
+        name: 'Nombre',
+        type: FieldTypes.STRING,
+        isRequired: true,
+      }, {
         id: 'email',
         name: 'Correo electrónico',
         type: FieldTypes.STRING,
@@ -31,6 +36,11 @@ class SignUp extends React.PureComponent {
         type: FieldTypes.STRING,
         isPassword: true,
         isRequired: true,
+      }, {
+        id: 'date',
+        name: 'Fecha de nacimiento',
+        type: FieldTypes.DATE,
+        isRequired: true,
       }],
     }, {
       button: 'Crear Rapero',
@@ -40,14 +50,29 @@ class SignUp extends React.PureComponent {
         type: FieldTypes.STRING,
         isRequired: true,
       }, {
+        id: 'genre',
+        name: 'Género',
+        type: FieldTypes.OPTIONS,
+        options: {
+          male: 'Masculino',
+          female: 'Femenino',
+        },
+        isRequired: true,
+      }, {
         id: 'style',
-        name: 'Estilo',
+        name: 'Estilo Musical',
         type: FieldTypes.OPTIONS,
         options: {
           Melodic: 'Melódico',
-          Aggresive: 'Agresivo',
           Lyric: 'Lírico',
+          Aggresive: 'Agresivo',
         },
+        isRequired: true,
+      }, {
+        id: 'avatar',
+        name: 'Avatar',
+        type: FieldTypes.STRING,
+        template: AvatarBuilder,
         isRequired: true,
       }],
     }]

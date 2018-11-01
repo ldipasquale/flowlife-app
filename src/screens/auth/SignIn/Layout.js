@@ -38,43 +38,32 @@ class SignIn extends React.PureComponent {
     const { navigation, onSubmit } = this.props
 
     return (
-      <React.Fragment>
-        <View style={styles.header}>
-          <Image
-            source={require('@assets/images/bg.png')}
-            style={styles.headerImage}
-          />
-
+      <App disableHeader disableManager>
+        <View style={styles.container}>
           <Image
             source={require('@assets/images/logo.png')}
             style={styles.logoImage}
           />
+
+          <View style={styles.content}>
+            <Form
+              fields={this.fields}
+              button="Ingresá a la experiencia"
+              buttonColor={colors.BLUE}
+              onSubmit={onSubmit}
+            />
+          </View>
         </View>
 
-        <App disableHeader disableManager>
-          <View style={styles.container}>
-            <View style={styles.contentSpacing} />
-
-            <View style={styles.content}>
-              <Form
-                fields={this.fields}
-                button="Ingresá a la experiencia"
-                buttonColor={colors.BLUE}
-                onSubmit={onSubmit}
-              />
-            </View>
-          </View>
-
-          <View>
-            <Text
-              style={styles.createNewUser}
-              onPress={() => navigation.navigate(screens.SIGN_UP)}
-            >
-              Creá a tu rapero
-            </Text>
-          </View>
-        </App>
-      </React.Fragment>
+        <View>
+          <Text
+            style={styles.createNewUser}
+            onPress={() => navigation.navigate(screens.SIGN_UP)}
+          >
+            Creá a tu rapero
+          </Text>
+        </View>
+      </App>
     )
   }
 }

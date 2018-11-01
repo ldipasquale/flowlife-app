@@ -8,12 +8,10 @@ export default StyleSheet.create({
   firstRow: {
     marginBottom: spacings.LARGE,
   },
-  moneyContainer: {
+  firstColumn: {
     flex: 2,
-    flexDirection: 'column',
   },
-  levelContainer: {
+  secondColumn: {
     flex: 1,
-    flexDirection: 'column',
   },
 })

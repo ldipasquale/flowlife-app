@@ -13,6 +13,9 @@ const menu = require('./icons/menu.png')
 const shop = require('./icons/shop.png')
 const bank = require('./icons/bank.png')
 const ranking = require('./icons/ranking.png')
+const relax = require('./icons/relax.png')
+const prev = require('./icons/prev.png')
+const next = require('./icons/next.png')
 
 export default {
   logout,
@@ -30,4 +33,7 @@ export default {
   shop,
   bank,
   ranking,
+  relax,
+  prev,
+  next,
 }

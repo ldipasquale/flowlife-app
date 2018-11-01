@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { View } from 'react-native'
-import { Title, Value } from '@components'
+import { Title } from '@components'
 
-import { colors } from '@stylesheets'
+import { colors, fontSizes } from '@stylesheets'
 
 import styles from './styles'
 
@@ -15,20 +15,14 @@ class StatsFans extends React.PureComponent {
     const { value } = this.props
 
     return (
-      <View style={styles.container}>
+      <View>
         <Title
           style={styles.text}
           color={color}
+          fontSize={fontSizes.XSMALL}
         >
-          Fans
+          {`${value} fans`}
         </Title>
-
-        <Value
-          style={styles.text}
-          color={color}
-        >
-          {value}
-        </Value>
       </View>
     )
   }

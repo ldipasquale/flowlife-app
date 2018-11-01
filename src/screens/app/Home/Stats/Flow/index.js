@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { View } from 'react-native'
 import { Title } from '@components'
 
-import { colors } from '@stylesheets'
+import { colors, fontSizes } from '@stylesheets'
 
 import styles from './styles'
 
@@ -16,7 +16,12 @@ class StatsFlow extends React.PureComponent {
 
     return (
       <View style={styles.container}>
-        <Title color={color}>{`Flow: ${value.toString()}`}</Title>
+        <Title
+          color={color}
+          fontSize={fontSizes.XSMALL}
+        >
+          {`Flow: ${value.toString()}`}
+        </Title>
       </View>
     )
   }

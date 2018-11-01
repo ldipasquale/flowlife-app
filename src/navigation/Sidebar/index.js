@@ -1,10 +1,28 @@
 import { connect } from 'react-redux'
 
+import { AsyncStorage } from 'react-native'
+
+import { cleanUser } from '@store/user/actions'
+
+import screens from '@screens/list'
+
 import Layout from './Layout'
 
 const mapStateToProps = state => ({
-  avatarUrl: 'https://banner2.kisspng.com/20180616/gks/kisspng-roblox-avatar-rapper-clip-art-cadea-carbonada-5b255cb41c2623.2620842815291752201153.jpg',
+  avatarUrl: state.user.avatar,
   userName: state.user.name,
 })
 
-export default connect(mapStateToProps)(Layout)
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onSignOut: async () => {
+    const { navigation } = ownProps
+
+    await AsyncStorage.removeItem('email')
+
+    navigation.navigate(screens.AUTH)
+
+    dispatch(cleanUser())
+  },
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout)

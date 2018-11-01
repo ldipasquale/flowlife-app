@@ -1,46 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { AsyncStorage, TouchableOpacity, ScrollView, View, Text, Image } from 'react-native'
+import { Avatar } from '@components'
+import { TouchableOpacity, ScrollView, View, Text, Image } from 'react-native'
 import { DrawerItems, SafeAreaView, withNavigation } from 'react-navigation'
 
 import { colors } from '@stylesheets'
 
 import assets from '@assets'
-import screens from '@screens/list'
 
 import styles from './styles'
 
-class Sidebar extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.handleSignOut = this.handleSignOut.bind(this)
-  }
-
-  async handleSignOut() {
-    const { navigation } = this.props
-
-    await AsyncStorage.removeItem('email')
-
-    navigation.navigate(screens.AUTH)
-  }
-
+class Sidebar extends React.PureComponent {
   render() {
-    const { userName, avatarUrl } = this.props
+    const { userName, avatarUrl, onSignOut } = this.props
 
     return (
       <ScrollView>
         <View style={styles.header}>
-          <Image
-            source={{ uri: avatarUrl }}
-            style={styles.avatarIcon}
+          <Avatar
+            url={avatarUrl}
+            size={96}
+            containerStyle={styles.avatarIcon}
           />
 
           <View style={styles.userNameContainer}>
             <Text style={styles.userName}>{userName}</Text>
 
-            <TouchableOpacity onPress={this.handleSignOut}>
+            <TouchableOpacity onPress={onSignOut}>
               <Image style={styles.logOut} source={assets.logout} />
             </TouchableOpacity>
           </View>
@@ -66,6 +53,7 @@ class Sidebar extends React.Component {
 Sidebar.propTypes = {
   userName: PropTypes.string.isRequired,
   avatarUrl: PropTypes.string.isRequired,
+  onSignOut: PropTypes.func.isRequired,
 }
 
 export default withNavigation(Sidebar)

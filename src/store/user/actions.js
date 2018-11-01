@@ -7,6 +7,11 @@ const saveUser = user => ({
   },
 })
 
+const cleanUser = () => ({
+  type: types.CLEAN,
+})
+
 export {
   saveUser,
+  cleanUser,
 }

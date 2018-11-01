@@ -16,4 +16,5 @@ export default {
   GOLDEN: '#F3BA1D',
   SILVER: '#c0c0c0',
   BRONZE: '#cd7f32',
+  LILAC: '#4CBBE7',
 }

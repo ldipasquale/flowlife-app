@@ -12,9 +12,6 @@ export default StyleSheet.create({
     marginBottom: spacings.XLARGE,
   },
   avatarIcon: {
-    width: 96,
-    height: 96,
-    borderRadius: 96,
     marginBottom: spacings.MEDIUM,
   },
   userNameContainer: {

@@ -6,20 +6,14 @@ import styles from './styles'
 
 class Title extends React.PureComponent {
   render() {
-    const {
-      children, color, fontSize, style,
-    } = this.props
+    const { children, color, fontSize, style } = this.props
 
     return (
       <Text
         style={[
           styles.title,
-          color !== null && {
-            color,
-          },
-          fontSize !== null && {
-            fontSize,
-          },
+          color && { color },
+          fontSize && { fontSize },
           style,
         ]}
       >
