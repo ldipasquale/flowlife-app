@@ -25,7 +25,7 @@ const makeAction = ({ response, navigation }) => (dispatch) => {
   dispatch(saveManagerTips(newManagerTips))
 
   if (navigation) {
-    setTimeout(() => navigation.navigate(screens.MANAGER_TIP), 500)
+    setTimeout(() => navigation.navigate(screens.MANAGER_TIP), 1000)
   }
 }
 
