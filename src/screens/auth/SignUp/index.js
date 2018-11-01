@@ -14,12 +14,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     const { navigation } = ownProps
 
     try {
-      const isSignedUp = await UsersService.signUp(values)
+      const response = await UsersService.signUp(values)
 
-      if (isSignedUp) {
+      if (!response.error) {
         await AsyncStorage.setItem('email', values.email)
-
-        const response = await UsersService.get(values.email)
 
         dispatch(makeAction({ response }))
 

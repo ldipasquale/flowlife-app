@@ -13,15 +13,22 @@ export default StyleSheet.create({
   },
   arrows: {
     position: 'absolute',
-    left: -20,
-    right: -20,
+    left: spacings.HUGE * -1,
+    right: spacings.HUGE * -1,
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
+  arrowContainer: {
+    width: spacings.HUGE,
+    height: spacings.HUGE,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: spacings.HUGE,
+  },
   capArrows: {
-    top: 6,
+    top: 0,
   },
   shoesArrows: {
-    top: 130,
+    top: 120,
   },
 })

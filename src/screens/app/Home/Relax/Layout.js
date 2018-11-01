@@ -24,7 +24,7 @@ class HomeRelax extends React.PureComponent {
 
           <View style={styles.textContainer}>
             <Text style={styles.text}>
-              Cuando quieras recargar un poco de flow, puedes relajarte un rato y tomar un descanso.
+              Cuando quieras despejarte un poco, puedes tomar un descanso y recargar un poco de flow.
             </Text>
           </View>
         </View>

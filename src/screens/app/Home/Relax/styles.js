@@ -12,7 +12,7 @@ export default StyleSheet.create({
     marginRight: spacings.LARGE,
   },
   textContainer: {
-    paddingRight: spacings.XLARGE,
+    paddingRight: spacings.HUGE,
   },
   text: {
     color: colors.LILAC,

@@ -23,31 +23,34 @@ class Avatar extends React.PureComponent {
           },
         ]}
       >
-        <Image
-          source={{ uri: url }}
-          style={[
-            styles.image,
-            style !== -1 && style,
-            {
-              width: size,
-              height: size,
-              borderRadius: size,
-            },
-          ]}
-        />
+        {url && (
+          <Image
+            source={{ uri: url }}
+            style={[
+              styles.image,
+              style !== -1 && style,
+              {
+                width: size,
+                height: size,
+                borderRadius: size,
+              },
+            ]}
+          />
+        )}
       </View>
     )
   }
 }
 
 Avatar.propTypes = {
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
   size: PropTypes.number,
   style: PropTypes.number,
   containerStyle: PropTypes.number,
 }
 
 Avatar.defaultProps = {
+  url: null,
   size: spacings.HUGE,
   style: -1,
   containerStyle: -1,

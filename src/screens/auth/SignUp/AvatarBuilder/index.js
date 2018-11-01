@@ -105,21 +105,33 @@ class AvatarBuilder extends React.PureComponent {
           />
 
           <View style={[styles.arrows, styles.capArrows]}>
-            <TouchableOpacity onPress={this.handlePressPrevCap}>
+            <TouchableOpacity
+              style={styles.arrowContainer}
+              onPress={this.handlePressPrevCap}
+            >
               <Image source={assets.prev} />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePressNextCap}>
+            <TouchableOpacity
+              style={styles.arrowContainer}
+              onPress={this.handlePressNextCap}
+            >
               <Image source={assets.next} />
             </TouchableOpacity>
           </View>
 
           <View style={[styles.arrows, styles.shoesArrows]}>
-            <TouchableOpacity onPress={this.handlePressPrevShoes}>
+            <TouchableOpacity
+              style={styles.arrowContainer}
+              onPress={this.handlePressPrevShoes}
+            >
               <Image source={assets.prev} />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={this.handlePressNextShoes}>
+            <TouchableOpacity
+              style={styles.arrowContainer}
+              onPress={this.handlePressNextShoes}
+            >
               <Image source={assets.next} />
             </TouchableOpacity>
           </View>

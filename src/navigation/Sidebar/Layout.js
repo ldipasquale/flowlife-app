@@ -52,8 +52,12 @@ class Sidebar extends React.PureComponent {
 
 Sidebar.propTypes = {
   userName: PropTypes.string.isRequired,
-  avatarUrl: PropTypes.string.isRequired,
+  avatarUrl: PropTypes.string,
   onSignOut: PropTypes.func.isRequired,
+}
+
+Sidebar.defaultProps = {
+  avatarUrl: null,
 }
 
 export default withNavigation(Sidebar)

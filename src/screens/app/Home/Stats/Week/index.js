@@ -20,7 +20,7 @@ class StatsFans extends React.PureComponent {
           style={styles.text}
           color={color}
         >
-          Week
+          Semana
         </Title>
 
         <Value

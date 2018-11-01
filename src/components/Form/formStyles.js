@@ -1,4 +1,5 @@
 import { colors, spacings, fontSizes } from '@stylesheets'
+import { Dimensions } from 'react-native'
 
 const LABEL_COLOR = colors.BLACK
 const LABEL_FONT_SIZE = fontSizes.STANDARD
@@ -116,6 +117,25 @@ export default Object.freeze({
     },
   },
   select: {
+    normal: {
+      marginTop: -15,
+      top: 12,
+      transform: [
+        { scaleX: 0.85 },
+        { scaleY: 0.85 },
+      ],
+      marginHorizontal: Dimensions.get('screen').width * -0.088,
+      color: INPUT_COLOR,
+    },
+  },
+  selectValue: {
+    normal: {
+      paddingHorizontal: 5,
+      marginBottom: 12,
+      marginHorizontal: 4,
+      borderBottomWidth: 1,
+      borderBottomColor: '#888',
+    },
   },
   pickerTouchable: {
     normal: {
@@ -169,14 +189,22 @@ export default Object.freeze({
     normal: {
       color: INPUT_COLOR,
       fontSize: FONT_SIZE,
-      padding: 7,
+      paddingVertical: 10,
+      paddingHorizontal: 5,
       marginBottom: 5,
+      marginHorizontal: 4,
+      borderBottomWidth: 1,
+      borderBottomColor: '#888',
     },
     error: {
       color: ERROR_COLOR,
       fontSize: FONT_SIZE,
-      padding: 7,
+      paddingVertical: 10,
+      paddingHorizontal: 5,
       marginBottom: 5,
+      marginHorizontal: 4,
+      borderBottomWidth: 1,
+      borderBottomColor: '#888',
     },
   },
 })

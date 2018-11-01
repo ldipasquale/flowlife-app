@@ -12,6 +12,8 @@ import Button from '../Button'
 
 import { FieldTypes } from './constants'
 
+import Select from './Select'
+
 import formStyles from './formStyles'
 import styles from './styles'
 
@@ -49,9 +51,12 @@ class FormStep extends React.PureComponent {
           ...field.type === FieldTypes.DATE ? {
             mode: 'date',
             config: {
-              defaultValueText: ' ',
+              defaultValueText: 'Seleccionar fecha de nacimiento...',
               format: date => format(date, 'DD [de] MMMM [del] YYYY', { locale: esLocale }),
             },
+          } : null,
+          ...field.type === FieldTypes.OPTIONS ? {
+            template: Select,
           } : null,
         },
       }), {}),
