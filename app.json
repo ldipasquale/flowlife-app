@@ -14,7 +14,8 @@
       "bundleIdentifier": "com.flowlife.app"
     },
     "android": {
-      "package": "com.flowlife.app"
+      "package": "com.flowlife.app",
+      "permissions": []
     },
     "description": ""
   }

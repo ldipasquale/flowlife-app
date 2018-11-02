@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { View, ScrollView } from 'react-native'
+import { SafeAreaView, View, ScrollView } from 'react-native'
 
 import Header from './Header'
 import Manager from './Manager'
@@ -13,27 +13,29 @@ class App extends React.PureComponent {
     const { children, disableHeader, disableManager, avatarUrl, withPadding } = this.props
 
     return (
-      <View style={styles.background}>
-        {!disableManager && (
-          <Manager />
-        )}
-
-        <View style={styles.container}>
-          {!disableHeader && (
-            <Header avatarUrl={avatarUrl} />
+      <SafeAreaView style={styles.appContainer}>
+        <View style={styles.background}>
+          {!disableManager && (
+            <Manager />
           )}
 
-          <ScrollView
-            style={[
-              styles.content,
-              withPadding && styles.contentWithPadding,
-            ]}
-            contentContainerStyle={styles.contentContainer}
-          >
-            {children}
-          </ScrollView>
+          <View style={styles.container}>
+            {!disableHeader && (
+              <Header avatarUrl={avatarUrl} />
+            )}
+
+            <ScrollView
+              style={[
+                styles.content,
+                withPadding && styles.contentWithPadding,
+              ]}
+              contentContainerStyle={styles.contentContainer}
+            >
+              {children}
+            </ScrollView>
+          </View>
         </View>
-      </View>
+      </SafeAreaView>
     )
   }
 }

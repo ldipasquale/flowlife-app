@@ -2,6 +2,10 @@ import { StyleSheet } from 'react-native'
 import { colors, spacings, others } from '@stylesheets'
 
 export default StyleSheet.create({
+  appContainer: {
+    backgroundColor: colors.VIOLET,
+    flex: 1,
+  },
   background: {
     backgroundColor: colors.VIOLET,
     flex: 1,
