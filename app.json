@@ -6,11 +6,15 @@
       "barStyle": "light-content",
       "backgroundColor": "#152888"
     },
-    "name": "Flow Life",
+    "name": "El Camino del Flow",
+    "icon": "./src/assets/app_icon.png",
     "version": "1.0.0",
     "slug": "flow-life",
+    "ios": {
+      "bundleIdentifier": "com.flowlife.app"
+    },
     "android": {
-      "package": "com.itau.flowlife"
+      "package": "com.flowlife.app"
     },
     "description": ""
   }

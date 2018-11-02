@@ -32,7 +32,6 @@ class Avatar extends React.PureComponent {
               {
                 width: size,
                 height: size,
-                borderRadius: size,
               },
             ]}
           />

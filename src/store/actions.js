@@ -13,8 +13,8 @@ const makeAction = ({ response, navigation }) => (dispatch) => {
     dispatch(saveUser(rapper))
 
     newManagerTips = [
-      ...updates,
-      ...advice,
+      ...[...updates].reverse(),
+      ...[...advice].reverse(),
     ]
 
     if (result !== null) {
